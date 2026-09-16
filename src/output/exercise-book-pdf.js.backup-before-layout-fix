@@ -1,0 +1,481 @@
+﻿const PDFDocument = require("pdfkit");
+const fs = require("fs");
+const path = require("path");
+
+function safe(value, fallback = "") {
+  return String(value ?? fallback).trim();
+}
+
+function addPageNumber(doc, number) {
+  doc.fontSize(9)
+    .fillColor("#64748b")
+    .text(String(number), 0, 790, {
+      align: "center",
+      width: 595
+    });
+}
+
+function addCover(doc, book) {
+  doc.rect(0, 0, 595, 842).fill("#eff6ff");
+
+  doc.fillColor("#1e3a8a")
+    .fontSize(17)
+    .text("ENGLISH EXERCISE BOOK", 60, 80, {
+      align: "center",
+      width: 475
+    });
+
+  doc.fillColor("#111827")
+    .fontSize(32)
+    .text(
+      safe(book.title, "English Exercise Book"),
+      55,
+      170,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  doc.fillColor("#2563eb")
+    .fontSize(25)
+    .text(
+      safe(book.className, "Class 1"),
+      55,
+      270,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  doc.fillColor("#111827")
+    .fontSize(19)
+    .text("English", 55, 320, {
+      align: "center",
+      width: 485
+    });
+
+  doc.fontSize(75)
+    .text("📚", 55, 400, {
+      align: "center",
+      width: 485
+    });
+
+  doc.fillColor("#374151")
+    .fontSize(15)
+    .text(
+      safe(book.subtitle, "Practice and Activities"),
+      55,
+      515,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  doc.fontSize(14)
+    .text(
+      `Author: ${safe(book.author, "Author")}`,
+      55,
+      650,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  doc.fontSize(12)
+    .text(
+      `${safe(book.edition, "First Edition")} • ${safe(book.year, "2026")}`,
+      55,
+      690,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+}
+
+function addAboutPage(doc, book) {
+  doc.addPage();
+
+  doc.fillColor("#111827")
+    .fontSize(27)
+    .text("About This Book", 60, 70);
+
+  doc.moveTo(60, 110)
+    .lineTo(535, 110)
+    .stroke("#2563eb");
+
+  doc.fontSize(13)
+    .fillColor("#374151")
+    .text(
+      `This English Exercise Book has been designed for ${safe(book.className, "primary school learners")}.`,
+      60,
+      145,
+      {
+        width: 475,
+        lineGap: 7
+      }
+    );
+
+  doc.moveDown(1);
+
+  doc.fontSize(13)
+    .text(
+      "The book provides practical activities that help learners practise the English lessons they have already studied in class.",
+      {
+        width: 475,
+        lineGap: 7
+      }
+    );
+
+  doc.moveDown(1);
+
+  doc.text(
+    `Author: ${safe(book.author, "Author")}`,
+    {
+      width: 475,
+      lineGap: 7
+    }
+  );
+
+  doc.text(
+    `Edition: ${safe(book.edition, "First Edition")}`,
+    {
+      width: 475,
+      lineGap: 7
+    }
+  );
+
+  doc.text(
+    `Year: ${safe(book.year, "2026")}`,
+    {
+      width: 475,
+      lineGap: 7
+    }
+  );
+}
+
+function addHowToUsePage(doc) {
+  doc.addPage();
+
+  doc.fillColor("#111827")
+    .fontSize(27)
+    .text("How to Use This Book", 60, 70);
+
+  doc.moveTo(60, 110)
+    .lineTo(535, 110)
+    .stroke("#2563eb");
+
+  const guidance = [
+    "1. Follow the lesson carefully in class.",
+    "2. Listen to your teacher and understand the lesson before using this exercise book.",
+    "3. After the lesson, open the corresponding unit in this book.",
+    "4. Read the instructions carefully before completing each exercise.",
+    "5. Work independently and write your answers clearly.",
+    "6. Ask your teacher for help when you do not understand an activity."
+  ];
+
+  let y = 150;
+
+  guidance.forEach(item => {
+    doc.fontSize(14)
+      .fillColor("#374151")
+      .text(item, 65, y, {
+        width: 465,
+        lineGap: 7
+      });
+
+    y += 62;
+  });
+
+  doc.fontSize(14)
+    .fillColor("#1e3a8a")
+    .text(
+      "Remember: this exercise book is for practice. The lesson should come first.",
+      65,
+      y + 15,
+      {
+        width: 465,
+        lineGap: 7
+      }
+    );
+}
+
+function addTableOfContents(doc, units) {
+  doc.addPage();
+
+  doc.fillColor("#111827")
+    .fontSize(27)
+    .text("Table of Contents", 60, 70);
+
+  doc.moveTo(60, 110)
+    .lineTo(535, 110)
+    .stroke("#2563eb");
+
+  let y = 145;
+
+  units.forEach((unit, index) => {
+    doc.fontSize(14)
+      .fillColor("#374151")
+      .text(
+        `Unit ${index + 1}: ${safe(unit.title, "Untitled Unit")}`,
+        70,
+        y,
+        {
+          width: 450
+        }
+      );
+
+    y += 30;
+
+    if (y > 740) {
+      addPageNumber(doc, index + 1);
+      doc.addPage();
+      y = 70;
+    }
+  });
+}
+
+function addUnit(doc, unit) {
+  doc.addPage();
+
+  doc.fillColor("#1e3a8a")
+    .fontSize(28)
+    .text(`Unit ${safe(unit.number, "")}`, 60, 65);
+
+  doc.fillColor("#111827")
+    .fontSize(22)
+    .text(
+      safe(unit.title, "Untitled Unit"),
+      60,
+      105,
+      {
+        width: 475
+      }
+    );
+
+  if (safe(unit.description)) {
+    doc.fillColor("#64748b")
+      .fontSize(12)
+      .text(
+        safe(unit.description),
+        60,
+        145,
+        {
+          width: 475,
+          lineGap: 5
+        }
+      );
+  }
+
+  let y = safe(unit.description) ? 200 : 165;
+
+  (unit.exercises || []).forEach((exercise, index) => {
+    if (y > 690) {
+      doc.addPage();
+      y = 65;
+    }
+
+    doc.fillColor("#2563eb")
+      .fontSize(17)
+      .text(
+        `Exercise ${index + 1}: ${safe(exercise.title, "Exercise")}`,
+        60,
+        y,
+        {
+          width: 475
+        }
+      );
+
+    y += 28;
+
+    if (safe(exercise.instructions)) {
+      doc.fillColor("#374151")
+        .fontSize(11)
+        .text(
+          safe(exercise.instructions),
+          65,
+          y,
+          {
+            width: 465,
+            lineGap: 4
+          }
+        );
+
+      y += 32;
+    }
+
+    if (safe(exercise.content)) {
+      doc.fillColor("#111827")
+        .fontSize(12)
+        .text(
+          safe(exercise.content),
+          65,
+          y,
+          {
+            width: 465,
+            lineGap: 6
+          }
+        );
+
+      y += 70;
+    } else {
+      y += 30;
+    }
+
+    doc.moveTo(65, y)
+      .lineTo(530, y)
+      .stroke("#e2e8f0");
+
+    y += 25;
+  });
+}
+
+function addFinalPage(doc) {
+  doc.addPage();
+
+  doc.fillColor("#1e3a8a")
+    .fontSize(28)
+    .text("Well Done!", 60, 250, {
+      align: "center",
+      width: 475
+    });
+
+  doc.fillColor("#374151")
+    .fontSize(15)
+    .text(
+      "Keep practising, keep learning and keep improving your English.",
+      70,
+      310,
+      {
+        align: "center",
+        width: 455,
+        lineGap: 7
+      }
+    );
+}
+
+function addBackCover(doc, book) {
+  doc.addPage();
+
+  doc.rect(0, 0, 595, 842).fill("#eff6ff");
+
+  doc.fillColor("#1e3a8a")
+    .fontSize(24)
+    .text(
+      safe(book.title, "English Exercise Book"),
+      60,
+      120,
+      {
+        align: "center",
+        width: 475
+      }
+    );
+
+  doc.fillColor("#374151")
+    .fontSize(14)
+    .text(
+      `An English exercise book for ${safe(book.className, "primary school learners")}.`,
+      70,
+      220,
+      {
+        align: "center",
+        width: 455,
+        lineGap: 7
+      }
+    );
+
+  doc.fontSize(14)
+    .text(
+      "Designed to help learners practise English after classroom lessons.",
+      70,
+      290,
+      {
+        align: "center",
+        width: 455,
+        lineGap: 7
+      }
+    );
+
+  doc.fontSize(12)
+    .text(
+      `Author: ${safe(book.author, "Author")}`,
+      70,
+      650,
+      {
+        align: "center",
+        width: 455
+      }
+    );
+
+  doc.fontSize(11)
+    .text(
+      `${safe(book.edition, "First Edition")} • ${safe(book.year, "2026")}`,
+      70,
+      680,
+      {
+        align: "center",
+        width: 455
+      }
+    );
+}
+
+async function generateExerciseBookPdf(project, outputPath) {
+  if (!project || !project.book) {
+    throw new Error("Book project is required.");
+  }
+
+  const directory = path.dirname(outputPath);
+
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true });
+  }
+
+  const doc = new PDFDocument({
+    size: "A4",
+    margins: {
+      top: 55,
+      bottom: 55,
+      left: 60,
+      right: 60
+    },
+    info: {
+      Title: safe(project.book.title, "English Exercise Book"),
+      Author: safe(project.book.author, "Exercise Book Generator"),
+      Subject: "English"
+    }
+  });
+
+  const stream = fs.createWriteStream(outputPath);
+
+  doc.pipe(stream);
+
+  addCover(doc, project.book);
+  addAboutPage(doc, project.book);
+  addHowToUsePage(doc);
+  addTableOfContents(doc, project.units || []);
+
+  for (const unit of project.units || []) {
+    addUnit(doc, unit);
+  }
+
+  addFinalPage(doc);
+  addBackCover(doc, project.book);
+
+  doc.end();
+
+  await new Promise((resolve, reject) => {
+    stream.on("finish", resolve);
+    stream.on("error", reject);
+  });
+
+  return outputPath;
+}
+
+module.exports = {
+  generateExerciseBookPdf
+};
+

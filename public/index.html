@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Exercise Book Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="app">
+
+    <header class="header">
+      <h1>English Exercise Book Generator</h1>
+      <p>Create a complete primary school English exercise book.</p>
+    </header>
+
+    <section class="card">
+      <h2>1. Book Information</h2>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label for="title">Book Title</label>
+          <input id="title" type="text" placeholder="English Exercise Book">
+        </div>
+
+        <div class="field">
+          <label for="subtitle">Subtitle</label>
+          <input id="subtitle" type="text" placeholder="Practice and Activities">
+        </div>
+
+        <div class="field">
+          <label for="classSelect">Class</label>
+          <select id="classSelect">
+            <option value="">Select a class</option>
+            <option value="class-1">Class 1</option>`r`n<option value="class-2">Class 2</option>`r`n<option value="class-3">Class 3</option>`r`n<option value="class-4">Class 4</option>`r`n<option value="class-5-6">Class 5 & 6</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" value="English">
+        </div>
+
+        <div class="field">
+          <label for="author">Author</label>
+          <input id="author" type="text" placeholder="Author name">
+        </div>        <div class="field">          <label for="email">Email</label>          <input id="email" type="email" placeholder="Email address">        </div>        <div class="field">          <label for="contact">Contact</label>          <input id="contact" type="text" placeholder="Phone / Contact">        </div>
+
+        <div class="field">
+          <label for="edition">Edition</label>
+          <input id="edition" type="text" placeholder="First Edition">
+        </div>
+
+        <div class="field">
+          <label for="year">Year</label>
+          <input id="year" type="text" value="2026">
+        </div>
+
+        <div class="field">
+          <label for="unitCount">Number of Units</label>
+          <input id="unitCount" type="number" min="1" value="1">
+        </div>
+
+      </div>
+
+      <button id="createUnitsButton" type="button">
+        Create Units
+      </button>
+
+      <div id="bookMessage" class="message"></div>
+    </section>
+
+    <section class="card">
+      <h2>2. Book Structure</h2>
+
+      <div class="structure">
+        <div>01 — Front Cover</div>
+        <div>02 — About This Book / Author</div>
+        <div>03 — How to Use This Book</div>
+        <div>04 — Table of Contents</div>
+        <div>05 — Units and Exercises</div>
+        <div>06 — Final Page</div>
+        <div>07 — Back Cover</div>
+      </div>
+
+      <div class="guidance">
+        <strong>Manual Guidance</strong>
+        <p>
+          This exercise book is designed to practise lessons already taught
+          in class. Learners should follow the lesson first and then complete
+          the corresponding exercises in this book.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Units &amp; Exercises</h2>
+
+      <p class="description">
+        Create the units and enter the exercises that will appear in the final book.
+      </p>
+
+      <div id="unitsContainer">
+        <div class="empty-state">
+          Choose the number of units and click <strong>Create Units</strong>.
+        </div>
+      </div>
+    </section>
+
+    <section class="card preview-card">
+      <h2>4. Cover Preview</h2>
+
+      <div class="cover-preview">
+        <div class="cover-label">ENGLISH EXERCISE BOOK</div>
+
+        <div class="cover-title" id="previewTitle">
+          English Exercise Book
+        </div>
+
+        <div class="cover-class" id="previewClass">
+          Class 5 & 6
+        </div>
+
+        <div class="cover-subject" id="previewSubject">
+          English
+        </div>
+
+        <div class="cover-illustration">
+          📚
+        </div>
+
+        <div class="cover-author" id="previewAuthor">
+          Author
+        </div>
+
+        <div class="cover-year" id="previewYear">
+          2026
+        </div>
+      </div>
+    </section>
+
+    <section class="card final-actions">
+      <h2>5. Final Book</h2>
+
+      <p class="description">
+        When the content is complete, the project will be converted into the
+        final English PDF exercise book.
+      </p>
+
+      <button id="saveProjectButton" type="button">
+        Save Book Project
+      </button>
+
+      <button id="generatePdfButton" type="button" disabled>
+        Generate PDF — Next Step
+      </button>
+
+      <div id="finalMessage" class="message"></div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
+

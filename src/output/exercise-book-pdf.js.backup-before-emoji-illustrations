@@ -1,0 +1,632 @@
+﻿const PDFDocument = require("pdfkit");
+const fs = require("fs");
+const path = require("path");
+
+const PAGE_WIDTH = 595;
+const PAGE_HEIGHT = 842;
+const LEFT = 60;
+const RIGHT = 535;
+const CONTENT_WIDTH = RIGHT - LEFT;
+const BOTTOM_LIMIT = 755;
+
+function safe(value, fallback = "") {
+  return String(value ?? fallback).trim();
+}
+
+function cleanPdfText(value) {
+  let text = safe(value);
+
+  // Remove corrupted illustration placeholders that must never appear as text.
+  text = text.replace(/Ø[=<>][^\s,.;:!?)]*/g, "");
+  text = text.replace(/&[^\s,.;:!?)]{1,4}/g, "");
+  text = text.replace(/!'?/g, "");
+  text = text.replace(/%ï/g, "");
+  text = text.replace(/[ \t]{2,}/g, " ");
+
+  return text.trim();
+}
+
+function addPageNumber(doc, number) {
+  doc.font("Helvetica")
+    .fontSize(9)
+    .fillColor("#64748b")
+    .text(String(number), 0, 790, {
+      align: "center",
+      width: PAGE_WIDTH
+    });
+}
+
+function drawBookIcon(doc) {
+  const x = 235;
+  const y = 395;
+
+  doc.save();
+
+  doc.lineWidth(3);
+  doc.strokeColor("#2563eb");
+  doc.fillColor("#ffffff");
+
+  doc.roundedRect(x, y, 58, 78, 5).fillAndStroke();
+  doc.roundedRect(x + 67, y, 58, 78, 5).fillAndStroke();
+
+  doc.moveTo(x + 61, y + 5)
+    .lineTo(x + 61, y + 73)
+    .stroke();
+
+  doc.strokeColor("#93c5fd");
+  doc.lineWidth(2);
+
+  doc.moveTo(x + 12, y + 18).lineTo(x + 47, y + 18).stroke();
+  doc.moveTo(x + 12, y + 31).lineTo(x + 47, y + 31).stroke();
+  doc.moveTo(x + 12, y + 44).lineTo(x + 47, y + 44).stroke();
+
+  doc.moveTo(x + 79, y + 18).lineTo(x + 114, y + 18).stroke();
+  doc.moveTo(x + 79, y + 31).lineTo(x + 114, y + 31).stroke();
+  doc.moveTo(x + 79, y + 44).lineTo(x + 114, y + 44).stroke();
+
+  doc.restore();
+}
+
+function addCover(doc, book) {
+  doc.rect(0, 0, PAGE_WIDTH, PAGE_HEIGHT).fill("#eff6ff");
+
+  doc.fillColor("#1e3a8a")
+    .font("Helvetica-Bold")
+    .fontSize(17)
+    .text("ENGLISH EXERCISE BOOK", 60, 80, {
+      align: "center",
+      width: CONTENT_WIDTH
+    });
+
+  doc.fillColor("#111827")
+    .font("Helvetica-Bold")
+    .fontSize(32)
+    .text(
+      cleanPdfText(book.title) || "English Exercise Book",
+      55,
+      170,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  doc.fillColor("#2563eb")
+    .font("Helvetica-Bold")
+    .fontSize(25)
+    .text(
+      cleanPdfText(book.className) || "Class 5 & 6",
+      55,
+      270,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  doc.fillColor("#111827")
+    .font("Helvetica")
+    .fontSize(19)
+    .text("English", 55, 320, {
+      align: "center",
+      width: 485
+    });
+
+  drawBookIcon(doc);
+
+  doc.fillColor("#374151")
+    .font("Helvetica")
+    .fontSize(15)
+    .text(
+      cleanPdfText(book.subtitle) || "Practice and Activities",
+      55,
+      515,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  doc.fontSize(14)
+    .text(
+      `Author: ${cleanPdfText(book.author) || "Author"}`,
+      55,
+      650,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  doc.fontSize(12)
+    .text(
+      `${cleanPdfText(book.edition) || "First Edition"} • ${cleanPdfText(book.year) || "2026"}`,
+      55,
+      690,
+      {
+        align: "center",
+        width: 485
+      }
+    );
+
+  if (cleanPdfText(book.email)) {
+    doc.fontSize(10)
+      .text(`Email: ${cleanPdfText(book.email)}`, 55, 720, {
+        align: "center",
+        width: 485
+      });
+  }
+
+  if (cleanPdfText(book.contact)) {
+    doc.fontSize(10)
+      .text(`Contact: ${cleanPdfText(book.contact)}`, 55, 738, {
+        align: "center",
+        width: 485
+      });
+  }
+}
+
+function addAboutPage(doc, book) {
+  doc.addPage();
+
+  doc.fillColor("#111827")
+    .font("Helvetica-Bold")
+    .fontSize(27)
+    .text("About This Book", 60, 70);
+
+  doc.moveTo(60, 110)
+    .lineTo(535, 110)
+    .stroke("#2563eb");
+
+  doc.font("Helvetica")
+    .fontSize(13)
+    .fillColor("#374151")
+    .text(
+      `This English Exercise Book has been designed for ${cleanPdfText(book.className) || "primary school learners"}.`,
+      60,
+      145,
+      {
+        width: CONTENT_WIDTH,
+        lineGap: 7
+      }
+    );
+
+  doc.moveDown(1);
+
+  doc.text(
+    "The book provides practical activities that help learners practise the English lessons they have already studied in class.",
+    {
+      width: CONTENT_WIDTH,
+      lineGap: 7
+    }
+  );
+
+  doc.moveDown(1);
+
+  doc.text(`Author: ${cleanPdfText(book.author) || "Author"}`, {
+    width: CONTENT_WIDTH,
+    lineGap: 7
+  });
+
+  doc.text(`Edition: ${cleanPdfText(book.edition) || "First Edition"}`, {
+    width: CONTENT_WIDTH,
+    lineGap: 7
+  });
+
+  doc.text(`Year: ${cleanPdfText(book.year) || "2026"}`, {
+    width: CONTENT_WIDTH,
+    lineGap: 7
+  });
+}
+
+function addHowToUsePage(doc) {
+  doc.addPage();
+
+  doc.fillColor("#111827")
+    .font("Helvetica-Bold")
+    .fontSize(27)
+    .text("How to Use This Book", 60, 70);
+
+  doc.moveTo(60, 110)
+    .lineTo(535, 110)
+    .stroke("#2563eb");
+
+  const guidance = [
+    "1. Follow the lesson carefully in class.",
+    "2. Listen to your teacher and understand the lesson before using this exercise book.",
+    "3. After the lesson, open the corresponding unit in this book.",
+    "4. Read the instructions carefully before completing each exercise.",
+    "5. Work independently and write your answers clearly.",
+    "6. Ask your teacher for help when you do not understand an activity."
+  ];
+
+  let y = 150;
+
+  guidance.forEach(item => {
+    doc.font("Helvetica")
+      .fontSize(14)
+      .fillColor("#374151")
+      .text(item, 65, y, {
+        width: 465,
+        lineGap: 7
+      });
+
+    y += 62;
+  });
+
+  doc.fontSize(14)
+    .fillColor("#1e3a8a")
+    .text(
+      "Remember: this exercise book is for practice. The lesson should come first.",
+      65,
+      y + 15,
+      {
+        width: 465,
+        lineGap: 7
+      }
+    );
+}
+
+function addTableOfContents(doc, units) {
+  doc.addPage();
+
+  doc.fillColor("#111827")
+    .font("Helvetica-Bold")
+    .fontSize(27)
+    .text("Table of Contents", 60, 70);
+
+  doc.moveTo(60, 110)
+    .lineTo(535, 110)
+    .stroke("#2563eb");
+
+  let y = 145;
+
+  units.forEach((unit, index) => {
+    const title = cleanPdfText(unit.title) || "Untitled Unit";
+
+    doc.font("Helvetica")
+      .fontSize(14)
+      .fillColor("#374151")
+      .text(`Unit ${index + 1}: ${title}`, 70, y, {
+        width: 450
+      });
+
+    y += 30;
+
+    if (y > 740 && index < units.length - 1) {
+      doc.addPage();
+      y = 70;
+    }
+  });
+}
+
+function startNewContentPage(doc) {
+  doc.addPage();
+  return 65;
+}
+
+function renderTextBlock(doc, text, x, y, width, options = {}) {
+  const value = cleanPdfText(text);
+
+  if (!value) {
+    return y;
+  }
+
+  const fontSize = options.fontSize || 12;
+  const lineGap = options.lineGap ?? 6;
+
+  doc.font(options.font || "Helvetica")
+    .fontSize(fontSize)
+    .fillColor(options.color || "#111827");
+
+  const height = doc.heightOfString(value, {
+    width,
+    lineGap
+  });
+
+  if (y + height > BOTTOM_LIMIT) {
+    doc.addPage();
+    y = 65;
+  }
+
+  doc.text(value, x, y, {
+    width,
+    lineGap
+  });
+
+  return y + height;
+}
+
+function addUnit(doc, unit) {
+  doc.addPage();
+
+  doc.fillColor("#1e3a8a")
+    .font("Helvetica-Bold")
+    .fontSize(28)
+    .text(`Unit ${cleanPdfText(unit.number)}`, 60, 65);
+
+  doc.fillColor("#111827")
+    .font("Helvetica-Bold")
+    .fontSize(22)
+    .text(
+      cleanPdfText(unit.title) || "Untitled Unit",
+      60,
+      105,
+      {
+        width: CONTENT_WIDTH
+      }
+    );
+
+  let y = 145;
+
+  if (cleanPdfText(unit.description)) {
+    y = renderTextBlock(
+      doc,
+      unit.description,
+      60,
+      y,
+      CONTENT_WIDTH,
+      {
+        fontSize: 12,
+        lineGap: 5,
+        color: "#64748b"
+      }
+    );
+    y += 25;
+  }
+
+  const exercises = Array.isArray(unit.exercises)
+    ? unit.exercises.slice(0, 3)
+    : [];
+
+  exercises.forEach((exercise, index) => {
+    const title = cleanPdfText(exercise.title) || `Exercise ${index + 1}`;
+    const instructions = cleanPdfText(exercise.instructions);
+    const content = cleanPdfText(exercise.content);
+
+    const titleFontSize = 17;
+    const titleLineGap = 4;
+    const instructionFontSize = 11;
+    const instructionLineGap = 4;
+    const contentFontSize = 12;
+    const contentLineGap = 6;
+
+    doc.font("Helvetica-Bold").fontSize(titleFontSize);
+    const titleHeight = doc.heightOfString(title, {
+      width: CONTENT_WIDTH,
+      lineGap: titleLineGap
+    });
+
+    let instructionHeight = 0;
+    if (instructions) {
+      doc.font("Helvetica").fontSize(instructionFontSize);
+      instructionHeight = doc.heightOfString(instructions, {
+        width: CONTENT_WIDTH - 5,
+        lineGap: instructionLineGap
+      });
+    }
+
+    let contentHeight = 0;
+    if (content) {
+      doc.font("Helvetica").fontSize(contentFontSize);
+      contentHeight = doc.heightOfString(content, {
+        width: CONTENT_WIDTH - 5,
+        lineGap: contentLineGap
+      });
+    }
+
+    const exerciseHeight =
+      titleHeight +
+      10 +
+      (instructions ? instructionHeight + 15 : 0) +
+      (content ? contentHeight + 20 : 0) +
+      25;
+
+    // Never allow an exercise to start if the complete exercise
+    // does not fit in the remaining space.
+    if (y + exerciseHeight > BOTTOM_LIMIT && y > 100) {
+      y = startNewContentPage(doc);
+    }
+
+    doc.fillColor("#2563eb")
+      .font("Helvetica-Bold")
+      .fontSize(titleFontSize)
+      .text(title, 60, y, {
+        width: CONTENT_WIDTH,
+        lineGap: titleLineGap
+      });
+
+    y += titleHeight + 10;
+
+    if (instructions) {
+      y = renderTextBlock(
+        doc,
+        instructions,
+        65,
+        y,
+        CONTENT_WIDTH - 5,
+        {
+          fontSize: instructionFontSize,
+          lineGap: instructionLineGap,
+          color: "#374151"
+        }
+      );
+      y += 15;
+    }
+
+    if (content) {
+      y = renderTextBlock(
+        doc,
+        content,
+        65,
+        y,
+        CONTENT_WIDTH - 5,
+        {
+          fontSize: contentFontSize,
+          lineGap: contentLineGap,
+          color: "#111827"
+        }
+      );
+      y += 20;
+    }
+
+    // Separator is drawn only when it remains safely inside the page.
+    if (y + 12 <= BOTTOM_LIMIT) {
+      doc.moveTo(65, y)
+        .lineTo(530, y)
+        .stroke("#e2e8f0");
+      y += 25;
+    } else if (index < exercises.length - 1) {
+      y = startNewContentPage(doc);
+    }
+  });
+}
+function addFinalPage(doc) {
+  doc.addPage();
+
+  doc.fillColor("#1e3a8a")
+    .font("Helvetica-Bold")
+    .fontSize(28)
+    .text("Well Done!", 60, 250, {
+      align: "center",
+      width: CONTENT_WIDTH
+    });
+
+  doc.fillColor("#374151")
+    .font("Helvetica")
+    .fontSize(15)
+    .text(
+      "Keep practising, keep learning and keep improving your English.",
+      70,
+      310,
+      {
+        align: "center",
+        width: 455,
+        lineGap: 7
+      }
+    );
+}
+
+function addBackCover(doc, book) {
+  doc.addPage();
+
+  doc.rect(0, 0, PAGE_WIDTH, PAGE_HEIGHT).fill("#eff6ff");
+
+  doc.fillColor("#1e3a8a")
+    .font("Helvetica-Bold")
+    .fontSize(24)
+    .text(
+      cleanPdfText(book.title) || "English Exercise Book",
+      60,
+      120,
+      {
+        align: "center",
+        width: CONTENT_WIDTH
+      }
+    );
+
+  doc.fillColor("#374151")
+    .font("Helvetica")
+    .fontSize(14)
+    .text(
+      `An English exercise book for ${cleanPdfText(book.className) || "primary school learners"}.`,
+      70,
+      220,
+      {
+        align: "center",
+        width: 455,
+        lineGap: 7
+      }
+    );
+
+  doc.fontSize(14)
+    .text(
+      "Designed to help learners practise English after classroom lessons.",
+      70,
+      290,
+      {
+        align: "center",
+        width: 455,
+        lineGap: 7
+      }
+    );
+
+  doc.fontSize(12)
+    .text(
+      `Author: ${cleanPdfText(book.author) || "Author"}`,
+      70,
+      650,
+      {
+        align: "center",
+        width: 455
+      }
+    );
+
+  doc.fontSize(11)
+    .text(
+      `${cleanPdfText(book.edition) || "First Edition"} • ${cleanPdfText(book.year) || "2026"}`,
+      70,
+      680,
+      {
+        align: "center",
+        width: 455
+      }
+    );
+}
+
+async function generateExerciseBookPdf(project, outputPath) {
+  if (!project || !project.book) {
+    throw new Error("Book project is required.");
+  }
+
+  const directory = path.dirname(outputPath);
+
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true });
+  }
+
+  const doc = new PDFDocument({
+    size: "A4",
+    margins: {
+      top: 55,
+      bottom: 55,
+      left: 60,
+      right: 60
+    },
+    info: {
+      Title: cleanPdfText(project.book.title) || "English Exercise Book",
+      Author: cleanPdfText(project.book.author) || "Exercise Book Generator",
+      Subject: "English"
+    }
+  });
+
+  const stream = fs.createWriteStream(outputPath);
+
+  doc.pipe(stream);
+
+  addCover(doc, project.book);
+  addAboutPage(doc, project.book);
+  addHowToUsePage(doc);
+  addTableOfContents(doc, project.units || []);
+
+  for (const unit of project.units || []) {
+    addUnit(doc, unit);
+  }
+
+  addFinalPage(doc);
+  addBackCover(doc, project.book);
+
+  doc.end();
+
+  await new Promise((resolve, reject) => {
+    stream.on("finish", resolve);
+    stream.on("error", reject);
+  });
+
+  return outputPath;
+}
+
+module.exports = {
+  generateExerciseBookPdf
+};
+

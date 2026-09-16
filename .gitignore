@@ -1,0 +1,8 @@
+﻿node_modules/
+output/*.pdf
+output/*.tmp
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

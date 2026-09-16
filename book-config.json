@@ -1,0 +1,36 @@
+﻿{
+  "language": "en",
+  "book": {
+    "title": "",
+    "subtitle": "",
+    "subject": "",
+    "grade": "",
+    "author": "",
+    "edition": "",
+    "year": "",
+    "numberOfUnits": 0,
+    "exercisesPerUnit": {
+      "minimum": 4,
+      "maximum": 5
+    }
+  },
+  "frontMatter": {
+    "cover": true,
+    "titlePage": true,
+    "preface": true,
+    "introduction": true,
+    "howToUse": true,
+    "tableOfContents": true
+  },
+  "backMatter": {
+    "backCover": true,
+    "answerKey": false
+  },
+  "design": {
+    "theme": "primary-school",
+    "coverIllustration": true,
+    "insideIllustrations": true,
+    "pageSize": "A4",
+    "font": "Arial"
+  }
+}
