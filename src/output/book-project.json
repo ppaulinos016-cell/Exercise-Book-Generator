@@ -12,7 +12,7 @@
     "contact": "+228 91256210",
     "edition": "First Edition",
     "year": "2026-2027",
-    "numberOfUnits": 11
+    "numberOfUnits": 12
   },
   "units": [
     {
@@ -23,45 +23,45 @@
         {
           "number": 1,
           "title": "Greetings",
-          "instructions": "Complete the sentences with the correct greeting.",
-          "content": "1. Good __________, teacher. (morning / night)\n\n2. __________! How are you? (Hello / Goodbye)\n\n3. Good __________! See you tomorrow. (bye / morning)\n\n4. __________ afternoon, Kofi. (Good / Hello)\n\n5. Good __________, Dad. I am going to bed. (night / morning)\n\n6. __________! Nice to meet you. (Hello / Goodbye)\n\n7. Good __________, Sir. Have a nice day. (morning / night)\n\n8. __________! I am happy to see you. (Hello / Goodbye)\n\n9. Good __________, everyone. (afternoon / night)\n\n10. __________! See you tomorrow. (Goodbye / Hello)"
+          "instructions": "Choose the correct greeting from the two options in parentheses.",
+          "content": "1. In the morning, you meet your teacher. (Le matin, tu rencontres ton professeur.)\n   “__________, teacher!” (Good morning / Good afternoon)\n\n2. In the morning, you meet your friend. (Le matin, tu rencontres ton ami(e).)\n   “__________, Ama!” (Good morning / Good evening)\n\n3. In the afternoon, you meet your teacher. (L’après-midi, tu rencontres ton professeur.)\n   “__________, sir!” (Good afternoon / Good morning)\n\n4. In the afternoon, you meet your friend. (L’après-midi, tu rencontres ton ami(e).)\n   “__________, Kofi!” (Good afternoon / Goodbye)\n\n5. In the evening, you meet your neighbour. (Le soir, tu rencontres ton voisin.)\n   “__________, Mr. Mensah!” (Good evening / Good morning)\n\n6. In the evening, you meet your aunt. (Le soir, tu rencontres ta tante.)\n   “__________, Auntie!” (Good evening / Good afternoon)\n\n7. You are leaving school. (Tu quittes l’école.)\n   “__________, teacher!” (Goodbye / Good morning)\n\n8. You are leaving your friend's house. (Tu quittes la maison de ton ami(e).)\n   “__________, Kofi!” (Goodbye / Good evening)\n\n9. You are going to bed. (Tu vas te coucher.)\n   “__________, Mum!” (Good night / Good afternoon)\n\n10. You are going to sleep after saying goodbye to your father. (Tu vas dormir après avoir dit au revoir à ton père.)\n    “__________, Dad!” (Good night / Good evening)"
         },
         {
           "number": 2,
           "title": "Self-Introduction",
-          "instructions": "Complete the sentences with information about yourself.",
-          "content": "1. My name is __________________________.\n\n2. I am __________ years old.\n\n3. I am from __________________________.\n\n4. I live in ___________________________.\n\n5. I am a ______________________________.\n\n6. My favourite subject is ______________.\n\n7. My favourite hobby is _________________.\n\n8. I speak ______________________________.\n\n9. I am attending  ______________________________.\n\n10. I am in class ____________."
+          "instructions": "Answer the following questions about yourself.",
+          "content": "1. What is your name? (Comment t’appelles-tu?)\n   My name is ______________________________.\n\n2. How old are you? (Quel âge as-tu?)\n   I am __________ years old.\n\n3. Where are you from? (D’où viens-tu?)\n   I am from ______________________________.\n\n4. Where do you live? (Où habites-tu?)\n   I live in ______________________________.\n\n5. What is the name of your school? (Comment s’appelle ton école?)\n   My school is called ______________________________.\n\n6. What class are you in? (Dans quelle classe es-tu?)\n   I am in Class ______________________________.\n\n7. What is your favourite subject? (Quelle est ta matière préférée?)\n   My favourite subject is ______________________________.\n\n8. What is your favourite colour? (Quelle est ta couleur préférée?)\n   My favourite colour is ______________________________.\n\n9. What do you like doing? (Qu’aimes-tu faire?)\n   I like ______________________________.\n\n10. What do you want to be when you grow up? (Que veux-tu devenir quand tu seras grand(e)?)\n    I want to be a/an ______________________________."
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
           "instructions": "Read carefully the text and choose the correct answer",
-          "content": "TEXT: ISABELLA\n\nHello! My name is Isabella. I am eleven years old. I come from Togo and I live in LomÃ© with my family. I am a student. I like English and music. I am happy to meet you. Goodbye!\n\nQUESTIONS\n\n1. Isabella is eleven years old. (True / False)\n\n2. Isabella comes from Ghana. (True / False)\n\n3. Isabella lives in LomÃ©. (True / False)\n\n4. Isabella likes English and music. (True / False)\n\n5. Isabella says â€œGoodbyeâ€ at the end. (True / False)"
+          "content": "TEXT: ISABELLA\n\nHello !  My name is Isabella. I am eleven years old. I come from Togo and I live in Lomé\nwith my family. I am a student. I like English and music. I am happy to meet you. \nGoodbye !\n\nQUESTIONS\n\n1. Isabella is eleven years old. (True / False)\n\n2. Isabella comes from Ghana. (True / False)\n\n3. Isabella lives in Lomé. (True / False)\n\n4. Isabella likes English and music. (True / False)\n\n5. Isabella says ''Goodbye\" at the end. (True / False)"
         }
       ]
     },
     {
       "number": 2,
-      "title": "Alphabets and Numbers",
+      "title": "Alphabet & Numbers",
       "description": "",
       "exercises": [
         {
           "number": 1,
-          "title": "Alphabets",
-          "instructions": "Complete the alphabet with the missing letters.",
-          "content": "1. A, B, ______, D, E\n\n2. F, ______, H, I, J\n\n3. K, L, ______, N, O\n\n4. P, ______, R, S, T\n\n5. U, V, ______, X, Y, Z\n\n6. A, ______, C, D, ______, F\n\n7. G, H, ______, J, K, ______\n\n8. M, ______, O, P, ______, R"
+          "title": "Alphabet",
+          "instructions": "Complete each word by choosing the correct letters from the bracket :",
+          "content": "1. G _ _ d   M _ r n i n g   (a / o / e / o)\n\n2. G _ _ d   A f t _ r n _ _ n   (e / o / o / o / o)\n\n3. G _ _ d   E v _ n i n g   (e / o / o)\n\n4. G _ _ d   N i g _ t   (h / o / o)\n\n5. G _ _ d b y _   (e / o)\n\n6. N _ m _   (e / a)\n\n7. A _ e   (e / g)\n\n8. S _ h _ _ l   (o / c / o)\n\n9. C _ a _ s   (s / l)\n\n10. F _ v _ u r i t _   (o / e / a)"
         },
         {
           "number": 2,
-          "title": "Cardinal and Ordinal Numbers in Words and in Figures",
-          "instructions": "Write the following numbers in and in figures",
-          "content": "Instruction: A. Write the following cardinal numbers in words.\n\n1. 6 = __________________________\n\n2. 12 = _________________________\n\n3. 20 = _________________________\n\n4. 35 = _________________________\n\n5. 48 = _________________________\n\n6. 70 = _________________________\n\nB. Write the following cardinal numbers in figures.\n\n1. Nine = _______________________\n\n2. Fifteen = ____________________\n\n3. Twenty-five = ________________\n\n4. Thirty-eight = _______________\n\n5. Fifty = ______________________\n\n6. Ninety-two = _________________\n\nC. Write the following ordinal numbers in words.\n\n1. 1st = _________________________\n\n2. 2nd = _________________________\n\n3. 3rd = _________________________\n\n4. 5th = _________________________\n\n5. 8th = _________________________\n\n6. 10th = ________________________\n\nD. Write the following ordinal numbers in figures.\n\n1. Fourth = ______________________\n\n2. Sixth = _______________________\n\n3. Ninth = _______________________\n\n4. Twelfth = _____________________\n\n5. Fifteenth = ___________________\n\n6. Twentieth = ___________________"
+          "title": "Numbers",
+          "instructions": "Write the Cardinal and Ordinal Numbers in Words and in Figures",
+          "content": "A. Write the cardinal numbers in words.(Écrire les nombres cardinaux en lettres)\n\n1.) 0 → __________________________\n2.) 47 → __________________________\n3.) 125 → __________________________\n4.) 8 → __________________________\n5.) 306 → __________________________\n6.) 71 → __________________________\n7.) 500 → __________________________\n8.) 219 → __________________________\n9.) 64 → __________________________\n10.) 1,000 → __________________________\n\nB. Write the cardinal numbers in figures. ( Écrire les nombres cardinaux en chiffres)\n\n11.) Three hundred and forty-two → __________________\n12.) Seventeen → __________________\n13.) Eight hundred and six → __________________\n14.) Ninety-five → __________________\n15.) Six hundred and twenty → __________________\n16.) Four → __________________\n17.) Seven hundred and fifty-three → __________________\n18.) Two hundred and one → __________________\n19.) Eighty-eight → __________________\n20.) Nine hundred and ninety → __________________\n\nC. Write the ordinal numbers in words. (Écrire les nombres ordinaux en lettres)\n\n21.) 2nd → __________________________\n22.) 11th → __________________________\n23.) 35th → __________________________\n24.) 100th → __________________________\n25.) 7th → __________________________\n26.) 42nd → __________________________\n27.) 250th → __________________________\n28.) 19th → __________________________\n29.) 501st → __________________________\n30.) 1,000th → __________________________\n\nD. Write the ordinal numbers in figures. (Écrire les nombres ordinaux en chiffres)\n\n31.) Fifth → __________________\n32.) Twenty-third → __________________\n33.) Sixty-first → __________________\n34.) One hundredth → __________________\n35.) Ninth → __________________\n36.) Two hundred and fourteenth → __________________\n37.) Thirty-seventh → __________________\n38.) Five hundred and fiftieth → __________________\n39.) Eight hundred and second → __________________\n40.) Nine hundred and ninety-ninth → __________________"
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Read carefully the text and answer the questions",
-          "content": "TEXT : Kofi\n\nMy name is Kofi. I am ten years old. There are twenty students in my class. I am the fifth student on the list. My friend Ama is the tenth student.\n\nInstruction: Answer the following questions. Write the answers in figures.\n\n1. How old is Kofi?\n\n----------\n\n2. How many students are in his class?\n\n----------\n\n3. What is Kofi's position on the list?\n\n----------\n\n4. What is Ama's position on the list?\n\n----------"
+          "instructions": "Read carefully the text and answer the questions :",
+          "content": "TEXT : Kofi\n\nMy name is Kofi. I am ten years old. There are twenty students in my class. I am the fifth \nstudent on the list. My friend Ama is the tenth student.\n\nInstruction: Answer the following questions. Write the answers in figures.\n\nQuestions\n\n1. How old is Kofi?---------\n\n2. How many students are in his class?---------\n\n3. What is Kofi's position on the list?---------\n\n4. What is Ama's position on the list?---------"
         }
       ]
     },
@@ -72,46 +72,46 @@
       "exercises": [
         {
           "number": 1,
-          "title": "Days of the Week",
-          "instructions": "Complete the days of the week with the missing letters.",
-          "content": "1. M _ n d a y\n\n2. T _ e s d a y\n\n3. W _ d n e s d a y\n\n4. T h _ r s d a y\n\n5. F r _ d a y\n\n6. S _ t u r d a y\n\n7. S _ n d a y\n\n8. Write the seven days of the week in order.\n\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+          "title": "Days",
+          "instructions": "Complete and write the days of the week in order :",
+          "content": "A. Complete the sentences with the correct day of the week.\n\n1.) The fifth day of the week is __________________________.\n\n2.) The second day of the week is __________________________.\n\n3.) The seventh day of the week is __________________________.\n\n4.) The first day of the week is __________________________.\n\n5.) The fourth day of the week is __________________________.\n\n6.) The sixth day of the week is __________________________.\n\n7.) The third day of the week is __________________________.\n\nB. Write the days of the week in the correct order. ( Écrire les jours de la semaine en ordre)\n\n8.) ______________________________________________________________"
         },
         {
           "number": 2,
-          "title": "Months of the Year",
-          "instructions": "Complete the months of the year with the missing letters.",
-          "content": "1. J _ n u a r y\n\n2. F _ b r u a r y\n\n3. M _ r c h\n\n4. A p r _ l\n\n5. M _ y\n\n6. J _ n e\n\n7. J _ l y\n\n8. A _ g u s t\n\n9. S _ p t e m b e r\n\n10. O c t _ b e r\n\n11. N _ v e m b e r\n\n12. D _ c e m b e r"
+          "title": "Months",
+          "instructions": "Complete and write the Months of the year in order :",
+          "content": "A. Complete the sentences with the correct month of the year.\n\n1.) The eighth month of the year is __________________________.\n\n2.) The third month of the year is __________________________.\n\n3.) The eleventh month of the year is __________________________.\n\n4.) The first month of the year is __________________________.\n\n5.) The sixth month of the year is __________________________.\n\n6.) The twelfth month of the year is __________________________.\n\n7.) The fourth month of the year is __________________________.\n\n8.) The ninth month of the year is __________________________.\n\n9.) The second month of the year is __________________________.\n\n10.) The seventh month of the year is __________________________.\n\n11.) The fifth month of the year is __________________________.\n\n12.) The tenth month of the year is __________________________.\n\nB. Write the months of the year in the correct order. (Écrire les mois de l'année en ordre)\n\n13.) ______________________________________________________________"
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Read carefully the text and answer the questions",
-          "content": "TEXT: Ama\n\nMy name is Ama. I go to school from Monday to Friday. Saturday is my favourite day because I play with my friends. My birthday is in June. December is my favourite month because I spend time with my family.\n\nInstruction: Answer the following questions by True or False.\n\n1. Ama goes to school from Monday to Friday. (True / False)\n\n2. Saturday is Ama's favourite day. (True / False)\n\n3. Ama's birthday is in July. (True / False)\n\n4. December is Ama's favourite month. (True / False)\n\n5. Ama spends time with her family in December. (True / False)"
+          "instructions": "Read carefully the text and answer the following questions :",
+          "content": "TEXT: Ama\n\nMy name is Ama. I go to school from Monday to Friday. Saturday is my favourite day \nbecause I play with my friends. My birthday is in June. December is my favourite month \nbecause I spend time with my family\n\nQuestions\n\nInstruction: Answer the following questions by True or False.\n\n1. Ama goes to school from Monday to Friday. (True / False)\n\n2. Saturday is Ama's favourite day. (True / False)\n\n3. Ama's birthday is in July. (True / False)\n\n4. December is Ama's favourite month. (True / False)\n\n5. Ama spends time with her family in December. (True / False"
         }
       ]
     },
     {
       "number": 4,
-      "title": "Classroom Materials  and Colours",
+      "title": "Classroom Materials and Colours",
       "description": "",
       "exercises": [
         {
           "number": 1,
           "title": "Classroom Materials",
-          "instructions": "Match each classroom material with the correct word.",
-          "content": "A\t                                      B\n\n1. âœï¸\t                             a. Book\n2. ðŸ“–    \t                             b. Ruler\n3. ðŸ“\t                             c. Pencila\n4. ðŸ–Šï¸\t                             d. Eraser\n5. â—»ï¸\t                             e. Pen"
+          "instructions": "Match the words in Column A with their correct French translations in Column B. Pay attention to the articles. (Faites correspondre les mots de la colonne A avec leurs traductions françaises correctes dans la colonne B. Faites attention aux articles.)",
+          "content": "A. English                         B. French\n\n1.) A pen                         a.) Une règle\n2.) A pencil                      b.) Un cahier\n3.) A ruler                       c.) Un stylo\n4.) An eraser                     d.) Une gomme\n5.) A notebook                    e.) Un crayon\n6.) A book                        f.) Un livre\n7.) A schoolbag                   g.) Une trousse\n8.) A pencil case                 h.) Un cartable\n9.) A sharpener                   i.) Un taille-crayon\n10.) A school desk                j.) Un bureau\n11.) A chair                      k.) Une chaise\n12.) A blackboard                 l.) Un tableau\n13.) A piece of chalk             m.) Une craie\n14.) A school uniform             n.) Un uniforme scolaire\n15.) A pair of scissors           o.) Une paire de ciseaux\n16.) A glue stick                 p.) Un bâton de colle\n17.) A ruler                      q.) Une règle\n18.) A marker                     r.) Un marqueur\n19.) A pencil box                 s.) Une boîte à crayons\n20.) A dictionary                 t.) Un dictionnaire"
         },
         {
           "number": 2,
           "title": "Colours",
-          "instructions": "Match each classroom material with its colour.",
-          "content": "1. ðŸ”´ Pencil â†’ __________\n2. ðŸ”µ Pen â†’ __________\n3. ðŸŸ¢ Ruler â†’ __________\n4. ðŸŸ¡ Book â†’ __________\n5. ðŸŸ  Eraser â†’ __________\n6. ðŸŸ£ Pencil case â†’ __________\n7. ðŸŸ¤ Schoolbag â†’ __________\n8. âš« Notebook â†’ __________\n9. âšª Paper â†’ __________\n10. ðŸ©· Marker â†’ __________\n\nColours:\n\nBlack â€“ Blue â€“ Brown â€“ Green â€“ Orange â€“ Pink â€“ Purple â€“ Red â€“ White â€“ Yellow"
+          "instructions": "Match the colours",
+          "content": "A. Match the colours in Column A with their correct French translations in Column B.\n\nColumn A – English                 Column B – French\n\n1.) Red                            a.) Bleu\n2.) Green                          b.) Rose\n3.) Blue                           c.) Noir\n4.) Yellow                         d.) Rouge\n5.) Black                          e.) Violet\n6.) White                          f.) Vert\n7.) Orange                         g.) Marron\n8.) Purple                         h.) Jaune\n9.) Pink                           i.) Blanc\n10.) Brown                         j.) Orange\n11.) Grey                          k.) Gris\n12.) Gold                          l.) Doré\n13.) Silver                        m.) Argenté\n14.) Light blue                    n.) Bleu clair\n15.) Dark green                    o.) Vert foncé\n\n\nB. Preferences – Complete the sentences.\n\n16.) What is your favourite colour? (Quelle est ta couleur préférée?)\n     My favourite colour is __________________________.\n\n17.) Do you like red? (Est-ce que tu aimes le rouge?)\n     Yes, I do. / No, I don't. __________________________.\n\n18.) Do you like blue? (Est-ce que tu aimes le bleu?)\n     Yes, I do. / No, I don't. __________________________.\n\n19.) Which colour do you like? (Quelle couleur aimes-tu?)\n     I like __________________________.\n\n20.) Which colour do you prefer, green or yellow? (Quelle couleur préfères-tu, le vert ou le jaune?)\n     I prefer __________________________."
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Read carefully and answer the following questions",
-          "content": "TEXT: Classroom materials\n\nMy name is Kofi. I am a pupil. I have a schoolbag. In my schoolbag, I have a book, a notebook, a pencil, a pen and a ruler. My pencil is red and my ruler is blue. I use my materials every day in class.\n\nQUESTIONS\n\n1. Kofi is a pupil. (True / False)\n2. Kofi has a schoolbag. (True / False)\n3. He has a pencil and a ruler. (True / False)\n4. His pencil is blue. (True / False)\n5. He uses his materials every day. (True / False)"
+          "instructions": "Read carefully the text and answer the questions :",
+          "content": "TEXT: Classroom materials\n\nMy name is Kofi. I am a pupil. I have a schoolbag. In my schoolbag, I have a book, a \nnotebook, a pencil, a pen and a ruler. My pencil is red and my ruler is blue. I use my \nmaterials every day in class.\n\nQuestions\n\n1. Kofi is a pupil. (True / False)\n\n2. Kofi has a schoolbag. (True / False)\n\n3. He has a pencil and a ruler. (True / False)\n\n4. His pencil is blue. (True / False)\n\n5. He uses his materials every day. (True / False"
         }
       ]
     },
@@ -123,20 +123,20 @@
         {
           "number": 1,
           "title": "Family Members",
-          "instructions": "Match the pictures with the correct family members.",
-          "content": "A. Pictures                                                  B. Words\n\n1. ðŸ‘¨ ________                                          a. Mother\n2. ðŸ‘© ________                                          b- Grandfather\n3. ðŸ‘¦ ________                                          c- Brother\n4. ðŸ‘§ ________                                          d- Father\n5. ðŸ‘´ ________                                          e- Grandmother\n6. ðŸ‘µ ________                                          f- Sister"
+          "instructions": "Match the words in Column A with their correct French translations in Column B.",
+          "content": "A. English                         B. French\n\n1.) Father                         a.) Une sœur\n2.) Mother                         b.) Un grand-père\n3.) Brother                        c.) Une mère\n4.) Sister                         d.) Un frère\n5.) Grandfather                    e.) Une grand-mère\n6.) Grandmother                    f.) Un père\n7.) Uncle                          g.) Une tante\n8.) Aunt                            h.) Un oncle\n9.) Son                             i.) Un fils\n10.) Daughter                      j.) Une fille"
         },
         {
           "number": 2,
-          "title": "Family Vocabulary",
-          "instructions": "Complete the words with the missing letters.",
-          "content": "1. F _ t h e r\n2. M _ t h e r\n3. B r _ t h e r\n4. S _ s t e r\n5. G r _ n d f a t h e r\n6. G r _ n d m o t h e r\n7. F _ m i l y\n8. P _ r e n t s"
+          "title": "Family Members and Occupations",
+          "instructions": "Complete each sentence with the correct occupation from the options in parentheses.",
+          "content": "1.) My father works in a hospital. He is a __________________. (doctor / teacher)\n(Mon père travaille dans un hôpital.)\n\n2.) My mother teaches children at school. She is a __________________. (teacher / farmer)\n(Ma mère enseigne aux enfants à l’école.)\n\n3.) My brother works on a farm. He is a __________________. (farmer / driver)\n(Mon frère travaille dans une ferme.)\n\n4.) My sister works in a hospital and helps sick people. She is a __________________. (nurse / pilot)\n(Ma sœur travaille dans un hôpital et aide les personnes malades.)\n\n5.) My uncle drives a bus. He is a __________________. (driver / cook)\n(Mon oncle conduit un bus.)\n\n6.) My aunt prepares food in a restaurant. She is a __________________. (cook / doctor)\n(Ma tante prépare des repas dans un restaurant.)\n\n7.) My grandfather catches fish for a living. He is a __________________. (fisherman / teacher)\n(Mon grand-père pêche pour gagner sa vie.)\n\n8.) My grandmother makes and sells clothes. She is a __________________. (dressmaker / pilot)\n(Ma grand-mère fabrique et vend des vêtements.)\n\n9.) My cousin flies an aeroplane. He is a __________________. (pilot / farmer)\n(Mon cousin pilote un avion.)\n\n10.) My brother works in a shop and sells things to customers. He is a __________________. (shopkeeper / nurse)\n(Mon frère travaille dans un magasin et vend des choses aux clients.)"
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Reading & Comprehension",
-          "content": "TEXT: My Family\n\nMy name is Kofi. I am a pupil. I live with my family. There are five people in my family: my father, my mother, my brother, my sister and me. My father is a teacher. My mother is a nurse. I love my family.\n\n QUESTIONS\n\n1. Kofi is a pupil. (True / False)\n\n2. Kofi lives with his family. (True / False)\n\n3. There are five people in his family. (True / False)\n\n4. His father is a teacher. (True / False)\n\n5. His mother is a nurse. (True / False)"
+          "instructions": "Read carefully the text and answer the questions :",
+          "content": "TEXT: My Family\n\nMy name is Kofi. I am a pupil. I live with my family. There are five people in my family: \nmy father, my mother, my brother, my sister and me. My father is a teacher. My mother \nis a nurse. I love my family.\n\nQuestions\n\n1. Kofi is a pupil. (True / False)\n\n2. Kofi lives with his family. (True / False)\n\n3. There are five people in his family. (True / False)\n\n4. His father is a teacher. (True / False)\n\n5. His mother is a nurse. (True / False)"
         }
       ]
     },
@@ -148,20 +148,20 @@
         {
           "number": 1,
           "title": "Time",
-          "instructions": "Look at the clocks and write the correct time. Use AM or PM.",
-          "content": "Instruction: Look at the clocks and write the correct time. Use AM or PM.\n\n1. ðŸ• Morning â†’ It is __________.\n\n2. ðŸ•’ Morning â†’ It is __________.\n\n3. ðŸ•• Evening â†’ It is __________.\n\n4. ðŸ•˜ Evening â†’ It is __________.\n\n5. ðŸ•› Morning â†’ It is __________.\n\nInstruction: Draw the hands on the clocks to show the following times.\n\n6. 7:00 AM â†’ â—¯\n\n7. 10:00 AM â†’ â—¯\n\n8.  2:00 PM â†’ â—¯\n\n9.  5:00 PM â†’ â—¯\n\n10. 8:00 PM â†’ â—¯"
+          "instructions": "atch the times in Column A with their correct French expressions in Column B.",
+          "content": "A. English Time                         B. French Time\n\n1.) 7:00 a.m.                           a.) Il est quatre heures et demie.\n2.) 2:30 p.m.                           b.) Il est onze heures cinquante.\n3.) 8:15 a.m.                           c.) Il est neuf heures cinq.\n4.) 12:00 p.m.                          d.) Il est sept heures.\n5.) 6:45 p.m.                           e.) Il est six heures quarante-cinq.\n6.) 10:20 a.m.                          f.) Il est huit heures quinze.\n7.) 4:30 p.m.                           g.) Il est dix heures vingt.\n8.) 9:05 p.m.                           h.) Il est midi.\n9.) 11:50 a.m.                          i.) Il est deux heures trente.\n10.) 3:00 p.m.                          j.) Il est trois heures."
         },
         {
           "number": 2,
-          "title": "Seasons",
-          "instructions": "Complete the sentences with the correct season.",
-          "content": "Instruction: Complete the sentences with the correct season.\n\nWords: Spring â€“ Summer â€“ Autumn â€“ Winter\n\n1. Flowers grow in __________.\n\n2. It is hot in __________.\n\n3. It is cold in __________.\n\n4. Leaves fall in __________.\n\n5. What is your favourite season?\n   â†’ ______________________"
+          "title": "Seasons of the Year",
+          "instructions": "Complete each sentence with the correct season from the options in parentheses. Read the French translation after each sentence.",
+          "content": "1.) The season after winter is __________________. (spring / summer)\n(La saison après l’hiver est __________________.)\n\n2.) The hottest season of the year is __________________. (summer / winter)\n(La saison la plus chaude de l’année est __________________.)\n\n3.) The season before winter is __________________. (autumn / spring)\n(La saison avant l’hiver est __________________.)\n\n4.) The coldest season of the year is __________________. (winter / autumn)\n(La saison la plus froide de l’année est __________________.)\n\n5.) Flowers usually grow in __________________. (spring / winter)\n(Les fleurs poussent généralement au __________________.)\n\n6.) People often enjoy holidays in __________________. (summer / autumn)\n(Les gens profitent souvent des vacances en __________________.)\n\n7.) Leaves often fall from trees in __________________. (autumn / spring)\n(Les feuilles tombent souvent des arbres en __________________.)\n\n8.) Christmas is celebrated in __________________. (winter / summer)\n(Noël est célébré en __________________.)\n\n9.) The four seasons are spring, summer, __________________ and winter. (autumn / spring)\n(Les quatre saisons sont le printemps, l’été, __________________ et l’hiver.)\n\n10.) After autumn comes __________________. (winter / summer)\n(Après l’automne vient __________________.)"
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Read the text and answer the questions by True or False.",
-          "content": "TEXT : James\n\nMy name is James. I am a pupil. I get up at 6:00 AM. I go to school at 7:00 AM. I come home at  4:00 PM. My favourite season is summer because I like sunny and warm days. I play outside with my friends.\n\n1. James is a pupil. (True / False)\n\n2. James gets up at 7:00 AM. (True / False)\n\n3. He goes to school at 7:00 AM. (True / False)\n\n4. His favourite season is summer. (True / False)\n\n5. James likes sunny and warm days. (True / False)"
+          "instructions": "Read carefully the text and answer the questions :",
+          "content": "TEXT : James\n\nMy name is James. I am a pupil. I get up at 6:00 AM. I go to school at 7:00 AM. I come \nhome at 4:00 PM. My favourite season is summer because I like sunny and warm days. \nI play outside with my friends.\n\nQuestions\n\n1. James is a pupil. (True / False)\n\n2. James gets up at 7:00 AM. (True / False)\n\n3. He goes to school at 7:00 AM. (True / False)\n\n4. His favourite season is summer. (True / False)\n\n5. James likes sunny and warm days. (True / False"
         }
       ]
     },
@@ -172,121 +172,146 @@
       "exercises": [
         {
           "number": 1,
-          "title": "MEALS AND FOOD",
-          "instructions": "Look at the pictures and write the correct meal.",
-          "content": "Breakfast â€“ Lunch â€“ Dinner\n\n1. ðŸŒ… ðŸ¥› ðŸž ðŸ¥š â†’ __________________\n\n2. â˜€ï¸ ðŸš ðŸ— ðŸ¥— â†’ __________________\n\n3. ðŸŒ™ ðŸ² ðŸ¥– ðŸ¥› â†’ __________________\n\nInstruction: Match each food with the correct word.\n\n1. ðŸŽ â†’ __________\n2. ðŸž â†’ __________\n3. ðŸ¥š â†’ __________\n4. ðŸš â†’ __________\n5. ðŸŒ â†’ __________\n6. ðŸ¥› â†’ __________\n\nWords:\nRice â€“ Milk â€“ Bread â€“ Banana â€“ Egg â€“ Apple"
+          "title": "Food",
+          "instructions": "Complete Part A and Part B.",
+          "content": "A. Match the meals in Column A with their correct French translations in Column B.\n\nA. English                         B. French\n\n1.) Breakfast                      a.) Le dîner\n2.) Lunch                          b.) Le petit-déjeuner\n3.) Dinner                         c.) Le déjeuner\n\n\nB. Match the food in Column A with their correct French translations in Column B.\n\nA. English                         B. French\n\n4.) Bread                          a.) Un œuf\n5.) Rice                           b.) Du poisson\n6.) Fish                           c.) Du pain\n7.) Chicken                        d.) Du lait\n8.) Egg                            e.) Du poulet\n9.) Milk                           f.) Une pomme\n10.) Apple                         g.) Du riz"
         },
         {
           "number": 2,
-          "title": "FOOD PREFERENCES",
-          "instructions": "Complete the sentences with â€œlikeâ€ or â€œdonâ€™t likeâ€.",
-          "content": "1. I __________ oranges. ðŸŠ\n\n2. I __________ chicken. ðŸ—\n\n3. I __________ tomatoes. ðŸ…\n\n4. I __________ rice. ðŸš\n\n5. I __________ cheese. ðŸ§€\n\nInstruction: Complete the sentences with the correct food.\n\n6. I like __________ for breakfast. ðŸž\n\n7. I eat __________ for lunch. ðŸš\n\n8. I drink __________ in the morning. ðŸ¥›\n\n9. I don't like __________. ðŸŸ\n\n10. My favourite food is __________. ðŸ—"
+          "title": "Preferences",
+          "instructions": "Complete each sentence with your own answer.",
+          "content": "1.) What do you like for breakfast? I like __________________.\n(Qu’est-ce que tu aimes au petit-déjeuner ?)\n\n2.) What do you like for lunch? I like __________________.\n(Qu’est-ce que tu aimes au déjeuner ?)\n\n3.) What do you like for dinner? I like __________________.\n(Qu’est-ce que tu aimes au dîner ?)\n\n4.) Do you like bananas? __________________.\n(Est-ce que tu aimes les bananes ?)\n\n5.) Do you like rice? __________________. (Yes I do / No, I don't)\n(Est-ce que tu aimes le riz ?)\n\n6.) Which food do you prefer, fish or chicken? I prefer __________________.\n(Quel aliment préfères-tu, le poisson ou le poulet ?)\n\n7.) Which fruit do you like? I like __________________.\n(Quel fruit aimes-tu ?)\n\n8.) What food do you dislike? I dislike __________________.\n(Quel aliment n’aimes-tu pas ?)\n\n9.) What is your favourite food? My favourite food is __________________.\n(Quel est ton plat préféré ?)\n\n10.) What is your favourite drink? My favourite drink is __________________.\n(Quelle est ta boisson préférée ?)"
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Read the text and answer the questions by True or False.",
-          "content": "TEXT: Sarah\n\nMy name is Sarah. I am a student. I have breakfast at 6:30 AM before I go to school. I usually eat bread and an egg and drink milk. At 1:00 PM, I have lunch at school. I like rice and chicken, but I don't like fish. In the evening, I have dinner with my family. I usually eat vegetables and potatoes. My favourite fruit is an orange.\n\nQUESTIONS\n\n1. Sarah is a student. (True / False)\n\n2. Sarah has breakfast at 6:30 AM. (True / False)\n\n3. She drinks milk at breakfast. (True / False)\n\n4. Sarah likes fish. (True / False)\n\n5. Her favourite fruit is an orange. (True / False)"
+          "instructions": "Read carefully the text and answer the questions",
+          "content": "TEXT: Sarah\n\nMy name is Sarah. I am a student. I have breakfast at 6:30 AM before I go to school. I \nusually eat bread and an egg and drink milk. At 1:00 PM, I have lunch at school. I like \nrice and chicken, but I don't like fish. In the evening, I have dinner with my family. I \nusually eat vegetables and potatoes. My favourite fruit is an orange.\n\nQUESTIONS\n\n1. Sarah is a student. (True / False)\n\n2. Sarah has breakfast at 6:30 AM. (True / False)\n\n3. She drinks milk at breakfast. (True / False)\n\n4. Sarah likes fish. (True / False)\n\n5. Her favourite fruit is an orange. (True / False"
         }
       ]
     },
     {
       "number": 8,
-      "title": "Body Parts, Health and Care",
-      "description": "",
-      "exercises": [
-        {
-          "number": 1,
-          "title": "Parts of Body",
-          "instructions": "Look at the picture and match the numbers with the correct body parts.",
-          "content": "(1)\n               O\n            2 /|\\ 3\n             / | \\\n            /  |  \\\n          (4)  |  (5)\n               |\n             (6)\n            /   \\\n          (7)   (8)\n\n\nWords:\n\na. Head\nb. Hand\nc. Arm\nd. Foot\ne. Leg\nf. Eye\ng. Nose\nh. Mouth\n\nComplete the answers:\n\n1. ------------------------------\n2. ------------------------------\n3. -----------------------------\n4. ------------------------------\n5. ------------------------------\n6. ------------------------------\n7. ------------------------------\n8. ------------------------------"
-        },
-        {
-          "number": 2,
-          "title": "Health and Personal Care",
-          "instructions": "Complete the sentences with the correct words.",
-          "content": "Words: wash â€“ brush â€“ eat â€“ drink â€“ exercise â€“ sleep\n\n1. We should __________ our hands before eating.\n\n2. We should __________ our teeth every day.\n\n3. We should __________ healthy food.\n\n4. We should __________ enough water.\n\n5. We should __________ regularly.\n\n6. We should __________ well at night."
-        },
-        {
-          "number": 3,
-          "title": "Reading & Comprehension",
-          "instructions": "Read the text carefully and answer the questions",
-          "content": "TEXT: Daniel\n\nMy name is Daniel. I am a pupil. I take care of my body every day. I take a bath in the morning and brush my teeth. I wash my hands before eating. I eat fruits and vegetables and drink plenty of water. I also play football and sleep well at night. I want to stay healthy.\n\nQUESTIONS\n\n1. Daniel is a pupil. (True / False)\n\n2. Daniel takes a bath in the morning. (True / False)\n\n3. He washes his hands before eating. (True / False)\n\n4. Daniel eats only sweets. (True / False)\n\n5. He exercises and sleeps well. (True / False)"
-        }
-      ]
-    },
-    {
-      "number": 9,
       "title": "Places and Directions",
       "description": "",
       "exercises": [
         {
           "number": 1,
           "title": "Places",
-          "instructions": "Match each picture with the correct place.",
-          "content": "A. Pictures\n\n1. ðŸ« __________\n2. ðŸ¥ __________\n3. ðŸª __________\n4. ðŸ¦ __________\n5. ðŸŒ³ __________\n6. â›ª __________\n\nB. Words\n\na. Hospital\nb. Bank\nc. School\nd. Church\ne. Park\nf. Shop"
+          "instructions": "Match the places in Column A with their correct French translations in Column B.",
+          "content": "A. English Places                                      B. French\n\n1.) School                                                    a.) Une pharmacie\n2.) Hospital                                                  b.) Un marché\n3.) Market                                                    c.) Une gare routière\n4.) Bank                                                      d.) Une bibliothèque\n5.) Post office                                               e.) Une école\n6.) Police station                                            f.) Une boulangerie\n7.) Fire station                                              g.) Un hôpital\n8.) Supermarket                                               h.) Un cinéma\n9.) Restaurant                                                i.) Une banque\n10.) Library                                                  j.) Un aéroport\n11.) Park                                                     k.) Une église\n12.) Church                                                   l.) Un commissariat de police\n13.) Mosque                                                   m.) Un restaurant\n14.) Bus station                                              n.) Une mosquée\n15.) Airport                                                  o.) Un supermarché\n16.) Railway station                                          p.) Un parc\n17.) Pharmacy                                                 q.) Une gare ferroviaire\n18.) Bakery                                                   r.) Une caserne de pompiers\n19.) Cinema                                                   s.) Une aire de jeux\n20.) Playground                                               t.) Un bureau de poste"
         },
         {
           "number": 2,
           "title": "Directions",
-          "instructions": "Complete the sentences with the correct direction.",
-          "content": "Words: left â€“ right â€“ straight â€“ near â€“ behind â€“ opposite\n\n\n                 SCHOOL\n                    ðŸ«\n                     |\n                     |\nBANK ðŸ¦ ----------- ROAD ----------- SHOP ðŸª\n                     |\n                     |\n                  HOSPITAL\n                     ðŸ¥\n\n\n1. The shop is on the __________ of the school.\n\n2. The hospital is __________ the school.\n\n3. The bank is on the __________ of the shop.\n\n4. The school is __________ the hospital.\n\n5. The bank is __________ the school.\n\n6. The hospital is __________ the shop."
+          "instructions": "Match the words in Column A with their correct French translations in Column B.",
+          "content": "1.) Go straight                                      a.) L’ouest\n2.) Turn left                                         b.) Le sud\n3.) Turn right                                        c.) Traverser la route\n4.) Go back                                           d.) L’est\n5.) North                                              e.) Suivre la route\n6.) South                                              f.) Tourner à droite\n7.) East                                               g.) Le nord\n8.) West                                               h.) Revenir en arrière\n9.) Cross the road                                    i.) Tourner à gauche\n10.) Follow the road                                  j.) Aller tout droit"
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Look at the map and complete the sentences with the correct words.",
-          "content": "TEXT : Peter\n\nMy name is Peter. I live near the market. Every Saturday, I walk to the market with my sister. The market is next to the bank. The hospital is opposite the market. We go straight and then turn right at the bank. We buy fruit and vegetables at the market.\n\nQUESTIONS\n\n1. Peter lives near the market. (True / False)\n\n2. Peter goes to the market every Sunday. (True / False)\n\n3. The market is next to the bank. (True / False)\n\n4. The hospital is opposite the market. (True / False)\n\n5. Peter buys fruit and vegetables at the market. (True / False)"
+          "instructions": "Read carefully the text and  answr the questions :",
+          "content": "TEXT : Peter\n\nMy name is Peter. I live near the market. Every Saturday, I walk to the market with my \nsister. The market is next to the bank. The hospital is opposite the market. We go \nstraight and then turn right at the bank. We buy fruit and vegetables at the market.\n\nQUESTIONS\n\n1. Peter lives near the market. (True / False)\n\n2. Peter goes to the market every Sunday. (True / False)\n\n3. The market is next to the bank. (True / False)\n\n4. The hospital is opposite the market. (True / False)\n\n5. Peter buys fruit and vegetables at the market. (True / False)"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Animals and Environment",
+      "description": "",
+      "exercises": [
+        {
+          "number": 1,
+          "title": "Animals",
+          "instructions": "Match the Animals",
+          "content": "A- Match the domestic animals in Column A with their correct French translations in Column B.\n\n1.) Dog                                      a.) Un cheval\n2.) Cat                                      b.) Une chèvre\n3.) Cow                                      c.) Un chien\n4.) Goat                                     d.) Un cochon\n5.) Sheep                                    e.) Un chat\n6.) Horse                                    f.) Une poule\n7.) Pig                                      g.) Un mouton\n8.) Chicken                                  h.) Une vache\n9.) Duck                                     i.) Un canard\n10.) Rabbit                                  j.) Un lapin\n\nB- Wild Animals – Match\n\nInstructions: Match the wild animals in Column A with their correct French translations in Column B.\n\n1.) Lion                                     a.) Un éléphant\n2.) Elephant                                 b.) Un crocodile\n3.) Giraffe                                  c.) Un tigre\n4.) Tiger                                    d.) Un singe\n5.) Monkey                                   e.) Un lion\n6.) Zebra                                    f.) Un serpent\n7.) Crocodile                                g.) Une girafe\n8.) Snake                                    h.) Un zèbre\n9.) Bear                                     i.) Un ours\n10.) Wolf                                    j.) Un loup"
+        },
+        {
+          "number": 2,
+          "title": "Environment",
+          "instructions": "Choose the correct answer.",
+          "content": "1.) We should put rubbish in the __________. (bin / river)\n(On doit mettre les déchets dans la poubelle.)\n\n2.) We should __________ trees to protect the environment. (plant / cut down)\n(On doit planter des arbres pour protéger l’environnement.)\n\n3.) We should __________ water. (save / waste)\n(On doit économiser l’eau.)\n\n4.) We should keep our environment __________. (clean / dirty)\n(On doit garder notre environnement propre.)\n\n5.) We should __________ plastic bottles instead of throwing them on the ground. (recycle / burn)\n(On doit recycler les bouteilles en plastique au lieu de les jeter par terre.)\n\n6.) We should not __________ rubbish in the street. (throw / collect)\n(On ne doit pas jeter les déchets dans la rue.)\n\n7.) We should __________ off the lights when we leave a room. (turn / leave)\n(On doit éteindre les lumières quand on quitte une pièce.)\n\n8.) We should use __________ bags when we go shopping. (reusable / plastic)\n(On doit utiliser des sacs réutilisables quand on fait les courses.)\n\n9.) We should __________ animals and their homes. (protect / destroy)\n(On doit protéger les animaux et leurs habitats.)\n\n10.) We should keep rivers and lakes __________. (clean / polluted)\n(On doit garder les rivières et les lacs propres.)"
+        },
+        {
+          "number": 3,
+          "title": "Reading & Comprehension",
+          "instructions": "Read carefully the text and answer the following questions :",
+          "content": "TEXT : Oliver\n\nMy name is Oliver. I love animals and nature. I have a small dog at home. It likes playing in the garden. At the weekend, I often go to the park with my brother. We see birds, butterflies and squirrels in the trees. I like watching the animals, but I never hurt them. I also help to keep the park clean. I put rubbish in the bin and take care of the plants. Nature is beautiful, and animals need our care.\n\n QUESTIONS\n\n1. Oliver loves animals and nature. (True / False)\n\n2. Oliver has a cat at home. (True / False)\n\n3. He sees birds and butterflies in the park. (True / False)\n\n4. Oliver hurts the animals. (True / False)\n\n5. He helps to keep the park clean. (True / False)"
         }
       ]
     },
     {
       "number": 10,
-      "title": "HOBBIES AND ACTIVITIES",
+      "title": "Human Body Parts, Health and Care",
       "description": "",
       "exercises": [
         {
           "number": 1,
-          "title": "Hobbies and Activities",
-          "instructions": "Match the pictures with the correct hobbies and activities.",
-          "content": "A. Pictures\n\n1. âš½ __________\n2. ðŸ“– __________\n3. ðŸŽµ __________\n4. ðŸŠ __________\n5. ðŸš² __________\n6. ðŸŽ¨ __________\n\n**B. Words**\n\na. Reading\nb. Cycling\nc. Swimming\nd. Playing football\ne. Listening to music\nf. Drawing"
+          "title": "Human Body Parts",
+          "instructions": "Match the body parts in Column A with their correct French translations in Column B.",
+          "content": "A. English Body Parts                                      B. French\n\n1.) Head                                      a.) Une jambe\n2.) Eye                                       b.) Une main\n3.) Ear                                       c.) Le nez\n4.) Nose                                      d.) Un doigt\n5.) Mouth                                     e.) La tête\n6.) Tooth                                     f.) Un pied\n7.) Neck                                      g.) Une oreille\n8.) Shoulder                                  h.) La bouche\n9.) Arm                                       i.) Un bras\n10.) Hand                                     j.) Un œil\n11.) Finger                                   k.) Une épaule\n12.) Leg                                      l.) Une dent\n13.) Foot                                     m.) Le cou\n14.) Knee                                     n.) Un genou\n15.) Hair                                     o.) Les cheveux\n16.) Face                                     p.) Le dos\n17.) Back                                     q.) Le visage\n18.) Chest                                    r.) La poitrine\n19.) Stomach                                  s.) Le ventre\n20.) Foot                                     t.) Un pied"
         },
         {
           "number": 2,
-          "title": "Hobbies",
-          "instructions": "Complete the sentences with the correct words.",
-          "content": "Words: reading â€“ football â€“ music â€“ swimming â€“ drawing â€“ cycling\n\n1. I like __________ books.\n\n2. I like playing __________.\n\n3. I like listening to __________.\n\n4. I like __________ in the pool.\n\n5. I like __________ pictures.\n\n6. I like __________ my bicycle."
+          "title": "Health and Care",
+          "instructions": "Choose the correct answer.",
+          "content": "1.) We should wash our hands before __________. (eating / sleeping)\n(On doit se laver les mains avant de manger.)\n\n2.) We should brush our __________ every morning and evening. (teeth / ears)\n(On doit se brosser les dents chaque matin et chaque soir.)\n\n3.) We should take a __________ every day to keep our body clean. (shower / walk)\n(On doit prendre une douche chaque jour pour garder notre corps propre.)\n\n4.) We should eat __________ food to stay healthy. (healthy / dirty)\n(On doit manger des aliments sains pour rester en bonne santé.)\n\n5.) We should drink plenty of __________ every day. (water / oil)\n(On doit boire beaucoup d’eau chaque jour.)\n\n6.) We should wash fruits and vegetables before __________ them. (eating / throwing)\n(On doit laver les fruits et les légumes avant de les manger.)\n\n7.) We should __________ our hands after using the toilet. (wash / dirty)\n(On doit se laver les mains après être allé aux toilettes.)\n\n8.) When we are sick, we should tell a __________. (doctor / driver)\n(Quand nous sommes malades, nous devons le dire à un médecin.)\n\n9.) We should get enough __________ every night. (sleep / noise)\n(On doit dormir suffisamment chaque nuit.)\n\n10.) We should exercise regularly to keep our body __________. (strong / dirty)\n(On doit faire régulièrement de l’exercice pour garder notre corps fort.)"
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Read the text carefully and answer the questions",
-          "content": "1. Oliver is a pupil. (True / False)\n\n2. Oliver likes playing football. (True / False)\n\n3. He likes reading books. (True / False)\n\n4. Oliver likes swimming. (True / False)\n\n5. He enjoys drawing pictures. (True / False)"
+          "instructions": "Read carefully the text and answer the question :",
+          "content": "TEXT : Ethan\n\nMy name is Ethan. I take good care of my body every day. I wash my hands before eating and brush my teeth in the morning and at night. I eat healthy food and drink enough water. I also exercise and sleep well. I keep my body clean because good health is important.\n\n QUESTIONS\n\n1. Ethan takes good care of his body. (True / False)\n\n2. He washes his hands before eating. (True / False)\n\n3. Ethan brushes his teeth only once a week. (True / False)\n\n4. He drinks enough water. (True / False)\n\n5. Ethan exercises and sleeps well. (True / False)"
         }
       ]
     },
     {
       "number": 11,
-      "title": "General Revision",
+      "title": "Hobbies and Activities",
       "description": "",
       "exercises": [
         {
           "number": 1,
-          "title": "General Revision: Vocabulary",
-          "instructions": "Complete each sentence with the correct word",
-          "content": "Words: father â€“ pencil â€“ Monday â€“ summer â€“ breakfast â€“ hand â€“ school â€“ football â€“ hospital â€“ blue â€“ sister â€“ book â€“ winter â€“ banana â€“ mother\n\n1. My __________ is a man in my family.\n\n2. I write with a __________.\n\n3. The first day of the school week is __________.\n\n4. It is usually hot in __________.\n\n5. I eat __________ in the morning.\n\n6. I have five fingers on my __________.\n\n7. I go to __________ every day.\n\n8. I like playing __________ with my friends.\n\n9. A doctor works in a __________.\n\n10. The colour of the sky is often __________.\n\n11. My parents' daughter is my __________.\n\n12. I read a __________.\n\n13. It is usually cold in __________.\n\n14. A __________ is a fruit.\n\n15. My father's wife is my __________."
+          "title": "Hobbies",
+          "instructions": "Match the hobbies in Column A with their correct French translations in Column B.",
+          "content": "A. English Hobbies                                      B. French\n\n1.) Reading                                      a.) Jouer au football\n2.) Drawing                                      b.) Danser\n3.) Singing                                      c.) Faire du vélo\n4.) Dancing                                      d.) Nager\n5.) Playing football                             e.) Lire\n6.) Swimming                                     f.) Jouer aux jeux vidéo\n7.) Riding a bicycle                             g.) Chanter\n8.) Playing basketball                           h.) Dessiner\n9.) Cooking                                      i.) Prendre des photos\n10.) Gardening                                   j.) Cuisiner\n11.) Fishing                                     k.) Jardiner\n12.) Listening to music                          l.) Jouer au basket-ball\n13.) Watching films                              m.) Pêcher\n14.) Playing the guitar                          n.) Écouter de la musique\n15.) Taking photos                               o.) Regarder des films\n16.) Playing video games                         p.) Jouer de la guitare\n17.) Collecting stamps                           q.) Collectionner des timbres\n18.) Writing stories                             r.) Écrire des histoires\n19.) Running                                     s.) Courir\n20.) Playing chess                               t.) Jouer aux échecs"
         },
         {
           "number": 2,
-          "title": "General Revision",
+          "title": "Activities",
           "instructions": "Choose the correct answer.",
-          "content": "1. I get up at 6:00 ________.\n   a. PM\n   b. AM\n\n2. There are ________ days in a week.\n   a. seven\n   b. twelve\n\n3. There are ________ months in a year.\n   a. ten\n   b. twelve\n\n4. My mother's mother is my ________.\n   a. grandmother\n   b. grandfather\n\n5. We use an ________ to remove pencil marks.\n   a. eraser\n   b. ruler\n\n6. We should ________ our hands before eating.\n   a. wash\n   b. dirty\n\n7. We should ________ our teeth every day.\n   a. brush\n   b. break\n\n8. Turn ________ at the bank.\n   a. right\n   b. book\n\n9. The hospital is a ________.\n   a. place\n   b. hobby\n\n10. I like ________ books.\n    a. reading\n    b. read\n\n11. I don't like ________.\n    a. fish\n    b. swimming\n\n12. The opposite of â€œbigâ€ is ________.\n    a. small\n    b. tall"
+          "content": "1.) I like to __________ football with my friends after school. (play / read)\n(J’aime jouer au football avec mes amis après l’école.)\n\n2.) She likes to __________ books in her free time. (read / swim)\n(Elle aime lire des livres pendant son temps libre.)\n\n3.) We often __________ music in the evening. (listen to / cook)\n(Nous écoutons souvent de la musique le soir.)\n\n4.) My brother likes to __________ pictures. (draw / fish)\n(Mon frère aime dessiner des images.)\n\n5.) They like to __________ in the swimming pool. (swim / write)\n(Ils aiment nager dans la piscine.)\n\n6.) I sometimes __________ my bicycle to school. (ride / sing)\n(Je fais parfois du vélo pour aller à l’école.)\n\n7.) My sister likes to __________ songs. (sing / run)\n(Ma sœur aime chanter des chansons.)\n\n8.) We __________ our grandmother at the weekend. (visit / play)\n(Nous rendons visite à notre grand-mère le week-end.)\n\n9.) He likes to __________ stories in his notebook. (write / swim)\n(Il aime écrire des histoires dans son cahier.)\n\n10.) The children __________ in the park after school. (run / cook)\n(Les enfants courent dans le parc après l’école.)"
         },
         {
           "number": 3,
           "title": "Reading & Comprehension",
-          "instructions": "Read the text carefully and answer the following questions",
-          "content": "1. William is a pupil. (True / False)\n\n2. There are five people in William's family. (True / False)\n\n3. William gets up at 7:00 AM.  (True / False)\n\n4. He drinks milk for breakfast. (True / False)\n\n5. William goes to school at 7:00 AM.  (True / False)\n\n6. His favourite subject is English. (True / False)\n\n7. William likes fish. (True / False)\n\n8. He plays football after school.  (True / False)\n\n9. William goes to bed at 9:00 PM. (True / False)\n\n10. William takes care of his body. (True / False)"
+          "instructions": "Read carefully the text and answer the following questions :",
+          "content": "TEXT: Sophie\n\nMy name is Sophie. I have some hobbies that I enjoy in my free time. I like reading books and drawing pictures. I also enjoy playing football with my friends. At the weekend, I sometimes ride my bicycle in the park. My hobbies make me happy and help me stay active.\n\nQUESTIONS\n\n1. Sophie has some hobbies. (True / False)\n\n2. She likes reading books. (True / False)\n\n3. Sophie does not like drawing. (True / False)\n\n4. She plays football with her friends. (True / False)\n\n5. Sophie sometimes rides her bicycle in the park. (True / False)"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Dresses and Clothing Styles",
+      "description": "",
+      "exercises": [
+        {
+          "number": 1,
+          "title": "Cloths ans Dresses",
+          "instructions": "Match the clothes in Column A with their correct French translations in Column B.",
+          "content": "A. English Clothes                                      B. French\n\n1.) Dress                                      a.) Un chapeau\n2.) Shirt                                      b.) Une jupe\n3.) Trousers                                   c.) Des chaussettes\n4.) Skirt                                      d.) Une robe\n5.) T-shirt                                   e.) Une chemise\n6.) Shorts                                     f.) Un pantalon\n7.) Jacket                                     g.) Un manteau\n8.) Coat                                       h.) Un T-shirt\n9.) Sweater                                    i.) Un pull\n10.) Hat                                       j.) Un short\n11.) Shoes                                     k.) Une veste\n12.) Socks                                     l.) Des chaussures\n13.) Scarf                                     m.) Une écharpe\n14.) Gloves                                    n.) Des gants\n15.) Belt                                      o.) Une ceinture\n16.) Tie                                       p.) Une cravate\n17.) Cap                                       q.) Une casquette\n18.) Sandals                                   r.) Des sandales\n19.) Boots                                     s.) Des bottes\n20.) Pyjamas                                   t.) Un pyjama"
+        },
+        {
+          "number": 2,
+          "title": "Clothing Styles",
+          "instructions": "Choose the correct answer.",
+          "content": "Exercise: Clothing Styles – Seasons and Events\n\nInstructions: Choose the correct answer.\n\n1.) In winter, we wear a __________ to keep warm. (coat / T-shirt)\n(En hiver, nous portons un manteau pour avoir chaud.)\n\n2.) In summer, I like wearing a __________ because the weather is hot. (T-shirt / coat)\n(En été, j’aime porter un T-shirt parce qu’il fait chaud.)\n\n3.) When it is raining, we can wear a __________. (raincoat / swimsuit)\n(Quand il pleut, nous pouvons porter un imperméable.)\n\n4.) At school, pupils usually wear a __________. (school uniform / swimsuit)\n(À l’école, les élèves portent généralement un uniforme scolaire.)\n\n5.) At a wedding, people can wear __________ clothes. (smart / dirty)\n(À un mariage, les gens peuvent porter des vêtements élégants.)\n\n6.) When we go to the beach, we can wear a __________. (swimsuit / winter coat)\n(Quand nous allons à la plage, nous pouvons porter un maillot de bain.)\n\n7.) In cold weather, we can wear __________ to keep our hands warm. (gloves / sandals)\n(Quand il fait froid, nous pouvons porter des gants pour garder nos mains au chaud.)\n\n8.) At a sports activity, we should wear __________ clothes. (sportswear / formal)\n(Pour une activité sportive, nous devons porter des vêtements de sport.)\n\n9.) At a birthday party, you can wear __________ clothes. (nice / dirty)\n(À une fête d’anniversaire, tu peux porter de beaux vêtements.)\n\n10.) In hot weather, we can wear __________ to protect our eyes from the sun. (sunglasses / gloves)\n(Quand il fait chaud, nous pouvons porter des lunettes de soleil pour protéger nos yeux du soleil.)"
+        },
+        {
+          "number": 3,
+          "title": "Reading & Comprehension",
+          "instructions": "Read carefully the text and answer the questions",
+          "content": "TEXT : Lily\n\nMy name is Lily. I choose my clothes according to the season and the event. In summer, I wear a light dress and sandals because the weather is hot. In winter, I wear a coat, trousers and warm shoes. For a birthday party, I like wearing a nice dress. When I go to school, I wear my school uniform. I always choose clothes that are suitable for the place and the occasion.\n\nQUESTIONS\n\n1. Lily chooses her clothes according to the season and the event. (True / False)\n\n2. She wears a coat in summer. (True / False)\n\n3. Lily wears warm clothes in winter. (True / False)\n\n4. She wears a nice dress for a birthday party. (True / False)\n\n5. Lily wears her school uniform to school. (True / False)"
         }
       ]
     }

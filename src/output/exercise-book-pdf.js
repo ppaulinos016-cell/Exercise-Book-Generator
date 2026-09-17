@@ -754,6 +754,82 @@ function drawUnit8BodyExercise(doc, y) {
 
   return nextY;
 }
+function drawUnit1Exercise1Content(doc, content, x, y, width, options = {}) {
+  const value = cleanPdfText(content);
+  if (!value) return y;
+
+  const fontSize = options.fontSize || 12;
+  const lineGap = options.lineGap ?? 6;
+  const lineHeight = fontSize + lineGap + 2;
+
+  const lines = value.split(/\r?\n/);
+  const items = [];
+  let currentItem = null;
+
+  for (const rawLine of lines) {
+    const match = rawLine.match(/^\s*(\d+)\.\s*(.*)$/);
+
+    if (match) {
+      if (currentItem) {
+        items.push(currentItem);
+      }
+
+      currentItem = {
+        number: match[1] + ".",
+        lines: [match[2]]
+      };
+    } else if (currentItem) {
+      currentItem.lines.push(rawLine);
+    } else {
+      items.push({
+        number: "",
+        lines: [rawLine]
+      });
+    }
+  }
+
+  if (currentItem) {
+    items.push(currentItem);
+  }
+
+  for (const item of items) {
+    if (!item.number && item.lines.every(line => !line.trim())) {
+      y += lineHeight;
+      continue;
+    }
+
+    const continuation = item.lines.slice(1).join("\n");
+    const body = item.lines[0] + (continuation ? "\n" + continuation : "");
+    const fullText = item.number ? item.number + " " + body : body;
+
+    const height = doc.heightOfString(fullText, {
+      width,
+      lineGap
+    });
+
+    if (y + height > BOTTOM_LIMIT && y > 100) {
+      doc.addPage();
+      y = 65;
+    }
+
+    doc.font("Helvetica")
+      .fontSize(fontSize)
+      .fillColor(options.color || "#111827")
+      .text(fullText, x, y, {
+        width,
+        lineGap,
+        continued: false
+      });
+
+    y += height;
+
+    if (item.number) {
+      y += lineHeight;
+    }
+  }
+
+  return y;
+}
 function addUnit(doc, unit) {
   doc.addPage();
 
@@ -831,11 +907,19 @@ function addUnit(doc, unit) {
 
     let contentHeight = 0;
     if (content) {
-      doc.font("Helvetica").fontSize(contentFontSize);
-      contentHeight = doc.heightOfString(content, {
-        width: CONTENT_WIDTH - 5,
-        lineGap: contentLineGap
-      });
+      if (Number(unit.number) === 1 && Number(exercise.number) === 1) {
+        doc.font("Helvetica").fontSize(contentFontSize);
+        contentHeight = doc.heightOfString(content, {
+          width: CONTENT_WIDTH - 35,
+          lineGap: contentLineGap
+        });
+      } else {
+        doc.font("Helvetica").fontSize(contentFontSize);
+        contentHeight = doc.heightOfString(content, {
+          width: CONTENT_WIDTH - 5,
+          lineGap: contentLineGap
+        });
+      }
     }
 
     const exerciseHeight =
@@ -888,6 +972,19 @@ function addUnit(doc, unit) {
         y = drawUnit4MatchExercise(doc, y);
       } else if (Number(unit.number) === 8 && Number(exercise.number) === 1) {
         y = drawUnit8BodyExercise(doc, y);
+      } else if (Number(unit.number) === 1 && Number(exercise.number) === 1) {
+        y = drawUnit1Exercise1Content(
+          doc,
+          content,
+          65,
+          y,
+          CONTENT_WIDTH - 5,
+          {
+            fontSize: contentFontSize,
+            lineGap: contentLineGap,
+            color: "#111827"
+          }
+        );
       } else {
         y = renderTextBlock(
           doc,
@@ -1071,6 +1168,7 @@ async function generateExerciseBookPdf(project, outputPath) {
 module.exports = {
   generateExerciseBookPdf
 };
+
 
 
 

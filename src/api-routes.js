@@ -107,6 +107,61 @@ function registerApiRoutes(app) {
     }
   });
 
+  router.post("/generate-docx", async (req, res) => {
+    try {
+      const project = req.body;
+
+      if (!project || !project.book) {
+        return res.status(400).json({
+          success: false,
+          error: "Book project is required."
+        });
+      }
+
+      const outputDirectory = path.join(
+        __dirname,
+        "..",
+        "output"
+      );
+
+      if (!fs.existsSync(outputDirectory)) {
+        fs.mkdirSync(outputDirectory, { recursive: true });
+      }
+
+      const className =
+        project.book.className || "Class 1";
+
+      const safeClass = className
+        .replace(/[^a-z0-9]+/gi, "_")
+        .replace(/^_+|_+$/g, "");
+
+      const outputPath = path.join(
+        outputDirectory,
+        `English_Exercise_Book_${safeClass}.docx`
+      );
+
+      const docxProject = {
+        information: project.book,
+        units: project.units || []
+      };
+
+      await createDocxDocument(
+        docxProject,
+        outputPath
+      );
+
+      res.json({
+        success: true,
+        message: "Word document generated successfully.",
+        file: `/output/${path.basename(outputPath)}`
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        error: error.message
+      });
+    }
+  });
   app.use("/api", router);
 
   app.use("/output", express.static(
@@ -117,3 +172,4 @@ function registerApiRoutes(app) {
 module.exports = {
   registerApiRoutes
 };
+

@@ -1,7 +1,9 @@
 ﻿const unitsContainer = document.getElementById("unitsContainer");
 const createUnitsButton = document.getElementById("createUnitsButton");
 const saveProjectButton = document.getElementById("saveProjectButton");
+const loadProjectButton = document.getElementById("loadProjectButton");
 const generatePdfButton = document.getElementById("generatePdfButton");
+const generateDocxButton = document.getElementById("generateDocxButton");
 
 const titleField = document.getElementById("title");
 const subtitleField = document.getElementById("subtitle");
@@ -49,13 +51,13 @@ function updateCoverPreview() {
   field.addEventListener("change", updateCoverPreview);
 });
 
-function createExercise(number) {
+function createExercise(number, data = {}, showNumber = true) {
   const exercise = document.createElement("div");
   exercise.className = "exercise-editor";
 
   exercise.innerHTML = `
     <div class="exercise-header">
-      <h4>Exercise ${number}</h4>
+      <h4>${showNumber ? `Exercise ${number}` : "Exercise"}</h4>
     </div>
 
     <div class="field">
@@ -72,12 +74,112 @@ function createExercise(number) {
 
     <div class="field">
       <label>Exercise Content</label>
-      <textarea class="exercise-content" rows="5"
-        placeholder="Enter the exercise content here..."></textarea>
+      <div class="content-toolbar">
+        <button type="button" class="format-bold" title="Bold"><strong>B</strong></button>
+        <button type="button" class="format-underline" title="Underline"><u>U</u></button>
+        <button type="button" class="format-image" title="Insert image">+</button>
+      </div>
+      <div class="exercise-content"
+        contenteditable="true"
+        role="textbox"
+        aria-multiline="true"
+        data-placeholder="Enter the exercise content here..."></div>
     </div>
   `;
 
+  const contentEditor = exercise.querySelector(".exercise-content");
+
+  const imageInput = document.createElement("input");
+  imageInput.type = "file";
+  imageInput.accept = "image/*";
+  imageInput.style.display = "none";
+  exercise.appendChild(imageInput);
+
+  function applyFormat(command) {
+    contentEditor.focus();
+    document.execCommand(command, false, null);
+  }
+
+  exercise.querySelector(".format-bold").addEventListener("mousedown", (event) => {
+    event.preventDefault();
+    applyFormat("bold");
+  });
+
+  exercise.querySelector(".format-underline").addEventListener("mousedown", (event) => {
+    event.preventDefault();
+    applyFormat("underline");
+  });
+  exercise.querySelector(".format-image").addEventListener("click", () => {
+    imageInput.click();
+  });
+
+  imageInput.addEventListener("change", () => {
+    const file = imageInput.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      contentEditor.focus();
+
+      const image = document.createElement("img");
+      image.src = reader.result;
+      image.alt = "Exercise image";
+      image.style.maxWidth = "100%";
+      image.style.height = "auto";
+      image.style.display = "block";
+      image.style.margin = "10px 0";
+
+      const selection = window.getSelection();
+
+      if (
+        selection &&
+        selection.rangeCount > 0 &&
+        contentEditor.contains(selection.anchorNode)
+      ) {
+        const range = selection.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(image);
+        range.setStartAfter(image);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      } else {
+        contentEditor.appendChild(image);
+      }
+    };
+
+    reader.readAsDataURL(file);
+    imageInput.value = "";
+  });
+  exercise.querySelector(".exercise-title").value =
+    data.title ?? "";
+
+  exercise.querySelector(".exercise-instructions").value =
+    data.instructions ?? "";
+
+  exercise.querySelector(".exercise-content").innerHTML =
+    data.content ?? "";
+
   return exercise;
+}
+
+function rebuildExercises(container, count) {
+  const existing = Array.from(
+    container.querySelectorAll(".exercise-editor")
+  ).map((exerciseElement) => ({
+    title: exerciseElement.querySelector(".exercise-title").value,
+    instructions: exerciseElement.querySelector(".exercise-instructions").value,
+    content: exerciseElement.querySelector(".exercise-content").innerHTML
+  }));
+
+  container.innerHTML = "";
+
+  for (let i = 1; i <= count; i++) {
+    container.appendChild(
+      createExercise(i, existing[i - 1] || {}, count > 1)
+    );
+  }
 }
 
 function createUnit(number) {
@@ -89,6 +191,15 @@ function createUnit(number) {
       <div>
         <span class="unit-number">UNIT ${number}</span>
         <h3>Unit ${number}</h3>
+      </div>
+
+      <div class="unit-controls">
+        <label for="exercise-count-${number}">Exercises</label>
+        <select id="exercise-count-${number}" class="exercise-count">
+          ${Array.from({ length: 10 }, (_, i) =>
+            `<option value="${i + 1}" ${i + 1 === 3 ? "selected" : ""}>${i + 1}</option>`
+          ).join("")}
+        </select>
       </div>
     </div>
 
@@ -110,9 +221,20 @@ function createUnit(number) {
   const exercisesContainer =
     unit.querySelector(".exercises-container");
 
-  for (let i = 1; i <= 3; i++) {
-    exercisesContainer.appendChild(createExercise(i));
-  }
+  const exerciseCount =
+    unit.querySelector(".exercise-count");
+
+  rebuildExercises(
+    exercisesContainer,
+    Number(exerciseCount.value)
+  );
+
+  exerciseCount.addEventListener("change", () => {
+    rebuildExercises(
+      exercisesContainer,
+      Number(exerciseCount.value)
+    );
+  });
 
   return unit;
 }
@@ -142,6 +264,7 @@ function createUnits() {
     "message success";
 
   generatePdfButton.disabled = false;
+  generateDocxButton.disabled = false;
 }
 
 createUnitsButton.addEventListener("click", createUnits);
@@ -161,17 +284,17 @@ function collectProject() {
           const title =
             exerciseElement
               .querySelector(".exercise-title")
-              .value.trim();
+              .value;
 
           const instructions =
             exerciseElement
               .querySelector(".exercise-instructions")
-              .value.trim();
+              .value;
 
           const content =
             exerciseElement
               .querySelector(".exercise-content")
-              .value.trim();
+              .innerHTML;
 
           exercises.push({
             number: exerciseIndex + 1,
@@ -186,11 +309,11 @@ function collectProject() {
         title:
           unitElement
             .querySelector(".unit-title")
-            .value.trim(),
+            .value,
         description:
           unitElement
             .querySelector(".unit-description")
-            .value.trim(),
+            .value,
         exercises
       });
     }
@@ -230,6 +353,122 @@ function collectProject() {
     }
   };
 }
+
+async function loadSavedProject() {
+  const finalMessage = document.getElementById("finalMessage");
+
+  try {
+    const response = await fetch("/api/project");
+
+    if (!response.ok) {
+      throw new Error("Unable to load the saved project.");
+    }
+
+    const result = await response.json();
+
+    if (!result.success || !result.project) {
+      finalMessage.textContent =
+        "No saved project was found.";
+
+      finalMessage.className =
+        "message error-state";
+
+      return;
+    }
+
+    const project = result.project;
+
+    titleField.value = project.book?.title ?? "";
+    subtitleField.value = project.book?.subtitle ?? "";
+    authorField.value = project.book?.author ?? "";
+    emailField.value = project.book?.email ?? "";
+    contactField.value = project.book?.contact ?? "";
+    editionField.value = project.book?.edition ?? "";
+    yearField.value = project.book?.year ?? "";
+
+    if (project.book?.grade) {
+      classField.value = project.book.grade;
+    }
+
+    const units = Array.isArray(project.units)
+      ? project.units
+      : [];
+
+    unitsContainer.innerHTML = "";
+
+    unitCountField.value = units.length || 1;
+
+    units.forEach((unitData, unitIndex) => {
+      const unit = createUnit(unitIndex + 1);
+
+      unit.querySelector(".unit-title").value =
+        unitData.title ?? "";
+
+      unit.querySelector(".unit-description").value =
+        unitData.description ?? "";
+
+      const exercises = Array.isArray(unitData.exercises)
+        ? unitData.exercises
+        : [];
+
+      const exerciseCount =
+        unit.querySelector(".exercise-count");
+
+      exerciseCount.value =
+        String(Math.max(1, Math.min(10, exercises.length || 1)));
+
+      const exercisesContainer =
+        unit.querySelector(".exercises-container");
+
+      rebuildExercises(
+        exercisesContainer,
+        Number(exerciseCount.value)
+      );
+
+      const exerciseElements =
+        exercisesContainer.querySelectorAll(".exercise-editor");
+
+      exercises.forEach((exerciseData, exerciseIndex) => {
+        const exerciseElement = exerciseElements[exerciseIndex];
+
+        if (!exerciseElement) {
+          return;
+        }
+
+        exerciseElement.querySelector(".exercise-title").value =
+          exerciseData.title ?? "";
+
+        exerciseElement.querySelector(".exercise-instructions").value =
+          exerciseData.instructions ?? "";
+
+        exerciseElement.querySelector(".exercise-content").innerHTML =
+          exerciseData.content ?? "";
+      });
+
+      unitsContainer.appendChild(unit);
+    });
+
+    if (units.length > 0) {
+      generatePdfButton.disabled = false;
+      generateDocxButton.disabled = false;
+    }
+
+    updateCoverPreview();
+
+    finalMessage.textContent =
+      "Saved project loaded successfully. You can continue where you stopped.";
+
+    finalMessage.className =
+      "message success";
+  } catch (error) {
+    finalMessage.textContent =
+      error.message || "Unable to load the saved project.";
+
+    finalMessage.className =
+      "message error-state";
+  }
+}
+loadProjectButton.addEventListener("click", loadSavedProject);
 
 saveProjectButton.addEventListener("click", async () => {
   const project = collectProject();
@@ -311,11 +550,78 @@ generatePdfButton.addEventListener("click", async () => {
       "message error-state";
   } finally {
     generatePdfButton.disabled = false;
+  generateDocxButton.disabled = false;
     generatePdfButton.textContent = "Generate PDF";
   }
 });
 
+generateDocxButton.addEventListener("click", async () => {
+  const project = collectProject();
+  const finalMessage = document.getElementById("finalMessage");
+
+  generateDocxButton.disabled = true;
+  generateDocxButton.textContent = "Generating Word...";
+
+  try {
+    const response = await fetch("/api/generate-docx", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(project)
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(
+        result.error || "Word generation failed."
+      );
+    }
+
+    finalMessage.innerHTML = `
+      Word document generated successfully.
+      <br>
+      <a href="${result.file}" download>
+        Download the Word document
+      </a>
+    `;
+
+    finalMessage.className =
+      "message success";
+
+  } catch (error) {
+    finalMessage.textContent =
+      error.message || "Word generation failed.";
+
+    finalMessage.className =
+      "message error-state";
+  } finally {
+    generateDocxButton.disabled = false;
+    generateDocxButton.textContent = "Download Word (.docx)";
+  }
+});
 updateCoverPreview();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
